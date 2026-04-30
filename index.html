@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bilal &amp; Rhenuma | Wedding Invitation</title>
+  <meta
+    name="description"
+    content="A modern Islamic wedding invitation for Bilal and Rhenuma with countdown, venue details, invitation message, gallery, and music."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <style>
+    :root {
+      --bg: #071612;
+      --bg-soft: #0d241d;
+      --panel: rgba(14, 35, 29, 0.76);
+      --panel-strong: rgba(8, 22, 18, 0.92);
+      --gold: #d8b36c;
+      --gold-soft: #f1d7a0;
+      --cream: #f6efdf;
+      --cream-soft: #d9cfbc;
+      --green-light: #1f4d3f;
+      --shadow: 0 28px 70px rgba(0, 0, 0, 0.34);
+      --radius: 28px;
+      --radius-lg: 40px;
+      --max-width: 1120px;
+      --transition: 320ms ease;
+      --pattern: rgba(216, 179, 108, 0.08);
+      color-scheme: dark;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Manrope", sans-serif;
+      color: var(--cream);
+      background:
+        radial-gradient(circle at top, rgba(59, 116, 95, 0.26), transparent 33%),
+        radial-gradient(circle at 80% 10%, rgba(216, 179, 108, 0.13), transparent 22%),
+        radial-gradient(circle at 10% 25%, rgba(216, 179, 108, 0.09), transparent 18%),
+        linear-gradient(180deg, #0b1c18 0%, #071612 35%, #05100d 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.45;
+      background:
+        radial-gradient(circle at 0 0, transparent 22px, var(--pattern) 23px, transparent 24px) 0 0 / 72px 72px,
+        radial-gradient(circle at 36px 36px, transparent 22px, var(--pattern) 23px, transparent 24px) 0 0 / 72px 72px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 88%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img,
+    svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .page-shell {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      position: relative;
+      padding: 32px 0 88px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 10% 18% auto;
+      height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(216, 179, 108, 0.16), transparent 70%);
+      filter: blur(24px);
+      z-index: -2;
+    }
+
+    .hero-glow,
+    .hero-lantern {
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .hero-glow {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 242, 214, 0.92);
+      box-shadow: 0 0 18px rgba(241, 215, 160, 0.95), 0 0 48px rgba(241, 215, 160, 0.35);
+      animation: drift 8s ease-in-out infinite;
+      opacity: 0.85;
+    }
+
+    .hero-glow.g1 { top: 18%; left: 12%; animation-delay: -1s; }
+    .hero-glow.g2 { top: 24%; right: 16%; width: 10px; height: 10px; animation-delay: -3s; }
+    .hero-glow.g3 { top: 56%; left: 9%; width: 8px; height: 8px; animation-delay: -2s; }
+    .hero-glow.g4 { top: 46%; right: 10%; animation-delay: -5s; }
+    .hero-glow.g5 { top: 74%; right: 22%; width: 9px; height: 9px; animation-delay: -4s; }
+
+    .hero-lantern {
+      width: 46px;
+      height: 86px;
+      border: 1px solid rgba(216, 179, 108, 0.35);
+      border-radius: 14px 14px 18px 18px;
+      background:
+        linear-gradient(180deg, rgba(216, 179, 108, 0.12), rgba(216, 179, 108, 0.02)),
+        radial-gradient(circle at 50% 52%, rgba(241, 215, 160, 0.64), transparent 44%);
+      box-shadow: 0 0 0 1px rgba(216, 179, 108, 0.1), 0 0 26px rgba(216, 179, 108, 0.16);
+      animation: lanternFloat 7s ease-in-out infinite;
+    }
+
+    .hero-lantern::before,
+    .hero-lantern::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 999px;
+      background: rgba(216, 179, 108, 0.88);
+    }
+
+    .hero-lantern::before {
+      top: -22px;
+      width: 2px;
+      height: 22px;
+    }
+
+    .hero-lantern::after {
+      left: 50%;
+      bottom: 12px;
+      width: 16px;
+      height: 2px;
+      transform: translateX(-50%);
+    }
+
+    .hero-lantern.l1 { top: 13%; left: 6%; }
+    .hero-lantern.l2 { top: 10%; right: 8%; animation-delay: -2.2s; }
+    .hero-lantern.l3 { bottom: 18%; left: 4%; width: 38px; height: 74px; animation-delay: -1s; }
+
+    .hero-card {
+      width: min(100%, 900px);
+      padding: 84px 22px 48px;
+      position: relative;
+      text-align: center;
+      background:
+        linear-gradient(180deg, rgba(18, 43, 36, 0.85), rgba(8, 22, 18, 0.94));
+      border: 1px solid rgba(216, 179, 108, 0.22);
+      border-radius: 220px 220px 30px 30px / 180px 180px 30px 30px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      animation: heroFade 1.4s ease both;
+    }
+
+    .hero-card::before,
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border: 1px solid rgba(216, 179, 108, 0.16);
+      border-radius: 50%;
+      filter: blur(0.2px);
+    }
+
+    .hero-card::before {
+      top: -84px;
+      left: -40px;
+    }
+
+    .hero-card::after {
+      bottom: -90px;
+      right: -30px;
+    }
+
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      font-size: 0.8rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+    }
+
+    .hero-title {
+      margin: 0;
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(3.4rem, 14vw, 7rem);
+      line-height: 0.96;
+      color: var(--cream);
+      text-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+    }
+
+    .hero-title .heart {
+      font-size: 0.5em;
+      color: var(--gold-soft);
+      vertical-align: middle;
+      margin: 0 0.08em;
+      filter: drop-shadow(0 0 18px rgba(216, 179, 108, 0.4));
+    }
+
+    .hero-subtitle {
+      margin: 18px 0 10px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+    }
+
+    .hero-copy {
+      width: min(100%, 540px);
+      margin: 0 auto 28px;
+      font-size: 0.98rem;
+      line-height: 1.75;
+      color: var(--cream-soft);
+    }
+
+    .hero-meta {
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .meta-pill {
+      padding: 11px 16px;
+      border-radius: 999px;
+      background: rgba(246, 239, 223, 0.06);
+      border: 1px solid rgba(216, 179, 108, 0.2);
+      color: var(--cream);
+      font-size: 0.84rem;
+      backdrop-filter: blur(12px);
+    }
+
+    .actions,
+    .section-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-width: 170px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition), border-color var(--transition);
+      font-weight: 700;
+      font-size: 0.96rem;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 26px rgba(0, 0, 0, 0.22);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ebcd90, #c79e54);
+      color: #172117;
+    }
+
+    .btn-secondary {
+      background: rgba(246, 239, 223, 0.05);
+      border-color: rgba(216, 179, 108, 0.25);
+      color: var(--cream);
+    }
+
+    .mosque-line {
+      position: absolute;
+      inset: auto 0 0;
+      opacity: 0.18;
+      z-index: 0;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+      padding-bottom: 44px;
+    }
+
+    .section {
+      padding: 42px 0;
+    }
+
+    .section-shell {
+      position: relative;
+      padding: 28px 20px;
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(180deg, rgba(19, 47, 38, 0.88), rgba(7, 20, 16, 0.94));
+      border: 1px solid rgba(216, 179, 108, 0.16);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(12px);
+    }
+
+    .section-shell::before,
+    .section-shell::after {
+      content: "";
+      position: absolute;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 1px solid rgba(216, 179, 108, 0.13);
+      opacity: 0.8;
+    }
+
+    .section-shell::before {
+      top: -44px;
+      left: -36px;
+    }
+
+    .section-shell::after {
+      bottom: -56px;
+      right: -42px;
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-kicker {
+      margin: 0 0 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.32em;
+      font-size: 0.77rem;
+      color: var(--gold-soft);
+    }
+
+    .section-title {
+      margin: 0 0 12px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.2rem, 8vw, 3.4rem);
+      line-height: 1;
+      color: var(--cream);
+    }
+
+    .section-copy {
+      width: min(100%, 680px);
+      margin: 0 auto;
+      color: var(--cream-soft);
+      line-height: 1.8;
+      font-size: 0.98rem;
+    }
+
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .time-card {
+      position: relative;
+      padding: 20px 14px;
+      border-radius: var(--radius);
+      text-align: center;
+      background:
+        radial-gradient(circle at top, rgba(216, 179, 108, 0.12), transparent 55%),
+        rgba(246, 239, 223, 0.045);
+      border: 1px solid rgba(216, 179, 108, 0.18);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+    }
+
+    .time-value {
+      display: block;
+      font-size: clamp(2rem, 9vw, 3.4rem);
+      font-weight: 800;
+      color: var(--gold-soft);
+      line-height: 1;
+    }
+
+    .time-label {
+      display: block;
+      margin-top: 8px;
+      font-size: 0.86rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--cream-soft);
+    }
+
+    .countdown-note {
+      margin: 20px auto 0;
+      text-align: center;
+      color: var(--cream-soft);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      max-width: 630px;
+    }
+
+    .details-grid {
+      display: grid;
+      gap: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .detail-card {
+      display: grid;
+      grid-template-columns: 50px 1fr;
+      gap: 14px;
+      align-items: center;
+      padding: 18px 18px;
+      border-radius: var(--radius);
+      background: rgba(246, 239, 223, 0.045);
+      border: 1px solid rgba(216, 179, 108, 0.15);
+    }
+
+    .detail-icon {
+      width: 50px;
+      height: 50px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(216, 179, 108, 0.22), rgba(216, 179, 108, 0.06));
+      color: var(--gold-soft);
+      box-shadow: inset 0 0 0 1px rgba(216, 179, 108, 0.18);
+    }
+
+    .detail-label {
+      display: block;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      color: var(--gold-soft);
+      margin-bottom: 6px;
+    }
+
+    .detail-value {
+      display: block;
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--cream);
+    }
+
+    .details-layout {
+      display: grid;
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .events-grid {
+      display: grid;
+      gap: 18px;
+      margin-top: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .event-panel {
+      padding: 22px 20px;
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at top right, rgba(216, 179, 108, 0.14), transparent 40%),
+        rgba(246, 239, 223, 0.045);
+      border: 1px solid rgba(216, 179, 108, 0.18);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+    }
+
+    .event-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(216, 179, 108, 0.12);
+      color: var(--gold-soft);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .event-panel h3 {
+      margin: 14px 0 8px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+      color: var(--cream);
+    }
+
+    .event-panel p {
+      margin: 0;
+      color: var(--cream-soft);
+      line-height: 1.75;
+      font-size: 0.96rem;
+    }
+
+    .event-meta {
+      display: grid;
+      gap: 12px;
+      margin: 18px 0 0;
+    }
+
+    .event-row {
+      display: grid;
+      gap: 4px;
+      padding: 12px 14px;
+      border-radius: 18px;
+      background: rgba(7, 18, 15, 0.42);
+      border: 1px solid rgba(216, 179, 108, 0.1);
+    }
+
+    .event-row span:first-child {
+      color: var(--gold-soft);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .event-row span:last-child {
+      color: var(--cream);
+      line-height: 1.55;
+    }
+
+    .event-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .map-card,
+    .info-card,
+    .message-card,
+    .story-card {
+      border-radius: var(--radius);
+      background: rgba(246, 239, 223, 0.045);
+      border: 1px solid rgba(216, 179, 108, 0.15);
+      overflow: hidden;
+    }
+
+    .info-card {
+      padding: 22px 18px;
+    }
+
+    .info-card h3,
+    .story-card h3 {
+      margin: 0 0 14px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.8rem;
+      color: var(--cream);
+    }
+
+    .info-card p,
+    .story-card p {
+      margin: 0;
+      color: var(--cream-soft);
+      line-height: 1.8;
+      font-size: 0.97rem;
+    }
+
+    .map-card iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 320px;
+      border: 0;
+      filter: saturate(0.82) contrast(1.05);
+    }
+
+    .message-card {
+      position: relative;
+      padding: 28px 20px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .message-card::before {
+      content: "";
+      position: absolute;
+      inset: -20% auto auto -10%;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(216, 179, 108, 0.12), transparent 70%);
+      filter: blur(6px);
+    }
+
+    .message-bismillah {
+      margin: 0 0 20px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.8rem, 8vw, 2.8rem);
+      color: var(--gold-soft);
+    }
+
+    .message-lines {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 10px;
+      font-size: clamp(1rem, 3vw, 1.18rem);
+      line-height: 1.9;
+      color: var(--cream);
+    }
+
+    .message-lines span {
+      display: block;
+    }
+
+    .message-lines .name {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2rem, 7vw, 3.1rem);
+      color: var(--gold-soft);
+      line-height: 1.1;
+      margin-top: 4px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      gap: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .gallery-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 26px;
+      border: 1px solid rgba(216, 179, 108, 0.16);
+      background: linear-gradient(180deg, rgba(12, 30, 25, 0.96), rgba(7, 18, 15, 0.98));
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+      box-shadow: 0 18px 34px rgba(0, 0, 0, 0.22);
+    }
+
+    .gallery-card:hover,
+    .gallery-card:focus-within {
+      transform: translateY(-5px);
+      border-color: rgba(216, 179, 108, 0.3);
+      box-shadow: 0 22px 42px rgba(0, 0, 0, 0.28);
+    }
+
+    .gallery-art {
+      aspect-ratio: 4 / 5;
+      width: 100%;
+      background: linear-gradient(180deg, rgba(16, 42, 35, 0.96), rgba(8, 20, 17, 0.98));
+    }
+
+    .gallery-caption {
+      padding: 18px 16px 20px;
+    }
+
+    .gallery-caption h3 {
+      margin: 0 0 8px;
+      font-size: 1.12rem;
+      color: var(--cream);
+    }
+
+    .gallery-caption p {
+      margin: 0;
+      color: var(--cream-soft);
+      line-height: 1.7;
+      font-size: 0.93rem;
+    }
+
+    .story-card {
+      margin-top: 18px;
+      padding: 24px 20px;
+    }
+
+    .footer {
+      padding: 18px 0 48px;
+      text-align: center;
+      color: var(--cream-soft);
+      font-size: 0.95rem;
+    }
+
+    .footer strong {
+      color: var(--gold-soft);
+      font-weight: 700;
+    }
+
+    .music-toggle,
+    .whatsapp-fab {
+      position: fixed;
+      z-index: 20;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(216, 179, 108, 0.24);
+      background: rgba(7, 18, 15, 0.84);
+      backdrop-filter: blur(14px);
+      color: var(--cream);
+      box-shadow: 0 18px 28px rgba(0, 0, 0, 0.22);
+    }
+
+    .music-toggle {
+      right: 16px;
+      bottom: 16px;
+      cursor: pointer;
+    }
+
+    .music-toggle.is-on {
+      border-color: rgba(216, 179, 108, 0.42);
+      box-shadow: 0 18px 32px rgba(216, 179, 108, 0.12);
+    }
+
+    .whatsapp-fab {
+      left: 16px;
+      bottom: 16px;
+    }
+
+    .fab-icon {
+      width: 18px;
+      height: 18px;
+      flex: none;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 700ms ease, transform 700ms ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 { transition-delay: 80ms; }
+    .delay-2 { transition-delay: 160ms; }
+    .delay-3 { transition-delay: 240ms; }
+
+    @keyframes heroFade {
+      from {
+        opacity: 0;
+        transform: translateY(24px) scale(0.985);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes lanternFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(12px); }
+    }
+
+    @keyframes drift {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(8px, -10px, 0) scale(1.12); }
+    }
+
+    @media (min-width: 700px) {
+      .hero {
+        padding-inline: 20px;
+      }
+
+      .hero-card {
+        padding: 96px 50px 58px;
+      }
+
+      .countdown-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .details-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .events-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 920px) {
+      .section {
+        padding: 56px 0;
+      }
+
+      .section-shell {
+        padding: 36px 34px;
+      }
+
+      .details-layout {
+        grid-template-columns: 1fr 1.25fr;
+        align-items: stretch;
+      }
+
+      .map-card iframe {
+        min-height: 100%;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero-card {
+        border-radius: 170px 170px 26px 26px / 140px 140px 26px 26px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .music-toggle span:last-child,
+      .whatsapp-fab span:last-child {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <audio id="bgMusic" loop muted playsinline preload="auto"></audio>
+
+    <a class="whatsapp-fab" id="whatsappShare" href="#" target="_blank" rel="noreferrer">
+      <svg class="fab-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          fill="currentColor"
+          d="M20.52 3.48A11.83 11.83 0 0 0 12.08 0C5.52 0 .2 5.32.2 11.88c0 2.09.54 4.13 1.56 5.94L0 24l6.37-1.67a11.86 11.86 0 0 0 5.71 1.45h.01c6.56 0 11.88-5.32 11.88-11.88 0-3.17-1.23-6.15-3.45-8.42Zm-8.44 18.29h-.01a9.92 9.92 0 0 1-5.04-1.37l-.36-.21-3.78.99 1.01-3.68-.23-.38a9.92 9.92 0 0 1-1.53-5.24c0-5.46 4.44-9.9 9.91-9.9 2.64 0 5.13 1.03 6.99 2.9a9.83 9.83 0 0 1 2.9 6.99c0 5.46-4.45 9.9-9.86 9.9Zm5.43-7.41c-.3-.15-1.78-.88-2.05-.98-.28-.1-.48-.15-.68.15-.2.29-.78.98-.95 1.19-.18.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48a9.03 9.03 0 0 1-1.67-2.08c-.17-.3-.02-.46.13-.61.14-.14.3-.36.45-.54.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.08-.15-.68-1.65-.94-2.25-.25-.6-.51-.51-.68-.52h-.58c-.2 0-.52.07-.79.37-.27.29-1.04 1.01-1.04 2.47 0 1.46 1.06 2.87 1.2 3.07.15.2 2.09 3.19 5.06 4.48.71.31 1.27.5 1.7.64.71.23 1.36.2 1.88.12.57-.09 1.78-.73 2.03-1.44.25-.71.25-1.32.18-1.44-.08-.12-.28-.19-.58-.34Z"
+        />
+      </svg>
+      <span>Share</span>
+    </a>
+
+    <button class="music-toggle" id="musicToggle" type="button" aria-label="Toggle background music">
+      <svg class="fab-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          fill="currentColor"
+          d="M14.5 3.5a1 1 0 0 1 1 1v14.25a2.75 2.75 0 1 1-2-2.64V8.77l-4.13 1.1A1.5 1.5 0 0 1 7.5 8.42V6.54a1.5 1.5 0 0 1 1.11-1.44l5.5-1.47a1 1 0 0 1 .39-.08Z"
+        />
+      </svg>
+      <span id="musicLabel">Music Off</span>
+    </button>
+
+    <header class="hero" id="home">
+      <div class="hero-glow g1"></div>
+      <div class="hero-glow g2"></div>
+      <div class="hero-glow g3"></div>
+      <div class="hero-glow g4"></div>
+      <div class="hero-glow g5"></div>
+      <div class="hero-lantern l1"></div>
+      <div class="hero-lantern l2"></div>
+      <div class="hero-lantern l3"></div>
+
+      <div class="container">
+        <div class="hero-card">
+          <div class="hero-card-inner">
+            <p class="eyebrow">Bismillah-ir-Rahman-ir-Rahim</p>
+            <h1 class="hero-title"><span data-bind="groom">Bilal</span> <span class="heart">&#10084;</span> <span data-bind="bride">Rhenuma</span></h1>
+            <p class="hero-subtitle">Wedding Invitation</p>
+            <p class="hero-copy">
+              With gratitude to Allah and joy in our hearts, we invite you to witness a beautiful union
+              wrapped in duas, warmth, and celebration.
+            </p>
+
+            <div class="hero-meta">
+              <span class="meta-pill" id="heroDate">19 May 2026</span>
+              <span class="meta-pill" id="heroTime">7:00 PM</span>
+              <span class="meta-pill" id="heroVenue">AWAM Banquet Hall</span>
+            </div>
+
+            <div class="actions">
+              <a class="btn btn-primary" id="viewInvitation" href="#countdown">View Invitation</a>
+              <a class="btn btn-secondary" href="#details">Event Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mosque-line" aria-hidden="true">
+        <svg viewBox="0 0 1440 270" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="mosqueGlow" x1="0%" x2="100%" y1="0%" y2="0%">
+              <stop offset="0%" stop-color="#d8b36c" stop-opacity="0"/>
+              <stop offset="50%" stop-color="#d8b36c" stop-opacity="0.55"/>
+              <stop offset="100%" stop-color="#d8b36c" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <path
+            fill="url(#mosqueGlow)"
+            d="M0 240h120v-20h14v-52c0-22 18-40 40-40s40 18 40 40v52h14v20h116v-26h10v-90h16v-28h10v28h16v90h10v26h110v-22h16v-42c0-28 23-51 51-51s51 23 51 51v42h16v22h132v-26h12v-68c0-21 17-38 38-38s38 17 38 38v68h12v26h128v-18h16v-96h18V72h10v54h18v96h16v18h120v30H0Z"
+          />
+        </svg>
+      </div>
+    </header>
+
+    <main>
+      <section class="section reveal" id="countdown">
+        <div class="container">
+          <div class="section-shell">
+            <div class="section-head">
+              <p class="section-kicker">Celebration Begins In</p>
+              <h2 class="section-title">Countdown To The Nikah</h2>
+              <p class="section-copy">
+                Counting the precious moments until Tuesday, 19 May 2026 at 7:00 PM.
+              </p>
+            </div>
+
+            <div class="countdown-grid">
+              <div class="time-card delay-1">
+                <span class="time-value" id="days">00</span>
+                <span class="time-label">Days</span>
+              </div>
+              <div class="time-card delay-1">
+                <span class="time-value" id="hours">00</span>
+                <span class="time-label">Hours</span>
+              </div>
+              <div class="time-card delay-2">
+                <span class="time-value" id="minutes">00</span>
+                <span class="time-label">Minutes</span>
+              </div>
+              <div class="time-card delay-3">
+                <span class="time-value" id="seconds">00</span>
+                <span class="time-label">Seconds</span>
+              </div>
+            </div>
+
+            <p class="countdown-note" id="countdownNote">
+              A golden evening of prayers, family, and love is on its way.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="details">
+        <div class="container">
+          <div class="section-shell">
+            <div class="section-head">
+              <p class="section-kicker">Save The Date</p>
+              <h2 class="section-title">Event Details</h2>
+              <p class="section-copy">
+                Everything you need to join us for these blessed celebrations is right here.
+              </p>
+            </div>
+
+            <div class="details-grid">
+              <div class="detail-card delay-1">
+                <div class="detail-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      fill="currentColor"
+                      d="M7 2a1 1 0 0 1 1 1v1h8V3a1 1 0 1 1 2 0v1h1a3 3 0 0 1 3 3v11a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V7a3 3 0 0 1 3-3h1V3a1 1 0 0 1 1-1Zm13 8H4v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8ZM5 6a1 1 0 0 0-1 1v1h16V7a1 1 0 0 0-1-1H5Z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <span class="detail-label">Date</span>
+                  <span class="detail-value" id="detailDate">Tuesday, 19 May 2026</span>
+                </div>
+              </div>
+
+              <div class="detail-card delay-2">
+                <div class="detail-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      fill="currentColor"
+                      d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm0 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16Zm1 3a1 1 0 0 1 1 1v3.59l2.7 2.7a1 1 0 0 1-1.4 1.42l-3-3A1 1 0 0 1 12 12V8a1 1 0 0 1 1-1Z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <span class="detail-label">Time</span>
+                  <span class="detail-value" id="detailTime">7:00 PM onward</span>
+                </div>
+              </div>
+
+              <div class="detail-card delay-3">
+                <div class="detail-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      fill="currentColor"
+                      d="M12 2c3.87 0 7 3.1 7 6.94 0 5.02-5.8 10.6-6.05 10.83a1.38 1.38 0 0 1-1.9 0C10.8 19.54 5 13.96 5 8.94 5 5.1 8.13 2 12 2Zm0 2a4.95 4.95 0 0 0-5 4.94c0 3.24 3.54 7.32 5 8.82 1.46-1.5 5-5.58 5-8.82A4.95 4.95 0 0 0 12 4Zm0 2.5a2.44 2.44 0 1 1 0 4.88 2.44 2.44 0 0 1 0-4.88Z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <span class="detail-label">Venue</span>
+                  <span class="detail-value" id="detailVenue">AWAM Banquet Hall, Moh. Peerzadgan, Bachhraon, Uttar Pradesh 244225</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="events-grid">
+              <article class="event-panel delay-1">
+                <span class="event-chip">Nikah</span>
+                <h3>Main Ceremony</h3>
+                <p>
+                  Join us for the nikah ceremony and an evening wrapped in warmth, prayer, and family joy.
+                </p>
+
+                <div class="event-meta">
+                  <div class="event-row">
+                    <span>Date</span>
+                    <span id="nikahDate">Tuesday, 19 May 2026</span>
+                  </div>
+                  <div class="event-row">
+                    <span>Time</span>
+                    <span id="nikahTime">7:00 PM onward</span>
+                  </div>
+                  <div class="event-row">
+                    <span>Venue</span>
+                    <span id="nikahVenue">AWAM Banquet Hall, Moh. Peerzadgan, Bachhraon, Uttar Pradesh 244225</span>
+                  </div>
+                </div>
+
+                <div class="event-links">
+                  <a
+                    class="btn btn-secondary"
+                    id="nikahMapLink"
+                    href="https://maps.app.goo.gl/GDvSAw6V8q8TRQuY8?g_st=aw"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Open Nikah Map
+                  </a>
+                </div>
+              </article>
+
+              <article class="event-panel delay-2">
+                <span class="event-chip">Walima</span>
+                <h3>Reception Gathering</h3>
+                <p>
+                  We would be honored by your presence again as we continue the celebration at the walima.
+                </p>
+
+                <div class="event-meta">
+                  <div class="event-row">
+                    <span>Date</span>
+                    <span id="walimaDate">Wednesday, 20 May 2026</span>
+                  </div>
+                  <div class="event-row">
+                    <span>Venue</span>
+                    <span id="walimaVenue">Umar Gardan, Kuankhera</span>
+                  </div>
+                </div>
+
+                <div class="event-links">
+                  <a
+                    class="btn btn-secondary"
+                    id="walimaMapLink"
+                    href="https://www.google.com/maps?q=Umar%20Gardan%20Kuankhera"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Search Walima Map
+                  </a>
+                </div>
+              </article>
+            </div>
+
+            <div class="details-layout">
+              <div class="info-card">
+                <h3>Two Joyful Gatherings</h3>
+                <p>
+                  Join our families for the nikah on 19 May and the walima on 20 May. Each gathering is a
+                  chance to share your duas, blessings, and joy as Bilal and Rhenuma begin this new chapter
+                  together.
+                </p>
+              </div>
+
+              <div class="map-card">
+                <iframe
+                  title="Wedding venue location"
+                  id="venueMap"
+                  loading="lazy"
+                  allowfullscreen
+                  referrerpolicy="no-referrer-when-downgrade"
+                  src="https://www.google.com/maps?q=AWAM%20Banquet%20Hall%2C%20Moh.%20Peerzadgan%2C%20Bachhraon%2C%20Uttar%20Pradesh%20244225&z=14&output=embed"
+                ></iframe>
+              </div>
+            </div>
+
+            <div class="section-actions" style="margin-top: 22px;">
+              <a
+                class="btn btn-secondary"
+                id="mapLink"
+                href="https://maps.app.goo.gl/GDvSAw6V8q8TRQuY8?g_st=aw"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Open Nikah Map
+              </a>
+              <a class="btn btn-primary" href="#gallery">View Story</a>
+              <a
+                class="btn btn-secondary"
+                href="mailto:?subject=RSVP%20for%20Bilal%20and%20Rhenuma&body=Assalamu%20Alaikum%2C%20I%20would%20love%20to%20attend%20the%20wedding%20of%20Bilal%20and%20Rhenuma."
+              >
+                RSVP
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="invitation">
+        <div class="container">
+          <div class="section-shell">
+            <div class="section-head">
+              <p class="section-kicker">A Heartfelt Dawat</p>
+              <h2 class="section-title">Invitation Message</h2>
+            </div>
+
+            <div class="message-card">
+              <p class="message-bismillah">Bismillah-ir-Rahman-ir-Rahim</p>
+
+              <div class="message-lines">
+                <span>Badi khushi aur Khuda ke karam se</span>
+                <span>hum aapko dawat dete hain apne pyare</span>
+                <span class="name" data-bind="groom">Bilal</span>
+                <span>ke nikah ki khushi mein</span>
+                <span>jinka nikah hone ja raha hai</span>
+                <span class="name" data-bind="bride">Rhenuma</span>
+                <span>ke saath</span>
+                <span>Aap ki shirkat humare liye khushi ka sabab hogi</span>
+                <span>Aaiye aur is pyaare bandhan ko apni duaaon se nawazein</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="gallery">
+        <div class="container">
+          <div class="section-shell">
+            <div class="section-head">
+              <p class="section-kicker">Gallery &amp; Story</p>
+              <h2 class="section-title">Moments Framed In Grace</h2>
+              <p class="section-copy">
+                A collection of soft, symbolic artwork to set the tone for a celebration shaped by love,
+                family, and prayer.
+              </p>
+            </div>
+
+            <div class="gallery-grid">
+              <article class="gallery-card delay-1">
+                <div class="gallery-art">
+                  <svg viewBox="0 0 600 760" aria-hidden="true">
+                    <defs>
+                      <linearGradient id="gA" x1="0%" x2="100%" y1="0%" y2="100%">
+                        <stop offset="0%" stop-color="#234c3f"/>
+                        <stop offset="100%" stop-color="#0b1814"/>
+                      </linearGradient>
+                    </defs>
+                    <rect width="600" height="760" fill="url(#gA)"/>
+                    <circle cx="300" cy="140" r="120" fill="rgba(216,179,108,0.15)"/>
+                    <path d="M110 720V300c0-125 87-212 190-212s190 87 190 212v420Z" fill="none" stroke="#d8b36c" stroke-opacity=".6" stroke-width="10"/>
+                    <path d="M160 720V328c0-88 62-150 140-150s140 62 140 150v392Z" fill="rgba(255,255,255,0.03)" stroke="#f1d7a0" stroke-opacity=".4" stroke-width="5"/>
+                    <path d="M120 620c75-18 108-96 127-178 13 57 31 104 53 136 27 40 68 66 119 78" fill="none" stroke="#d8b36c" stroke-opacity=".28" stroke-width="7"/>
+                    <circle cx="238" cy="428" r="10" fill="#f1d7a0"/>
+                    <circle cx="298" cy="372" r="7" fill="#f1d7a0"/>
+                    <circle cx="362" cy="445" r="9" fill="#f1d7a0"/>
+                    <text x="300" y="624" fill="#f6efdf" font-family="Cormorant Garamond, serif" font-size="48" text-anchor="middle">From Dua</text>
+                    <text x="300" y="676" fill="#d8b36c" font-family="Great Vibes, cursive" font-size="78" text-anchor="middle">to Forever</text>
+                  </svg>
+                </div>
+                <div class="gallery-caption">
+                  <h3>From Dua To Forever</h3>
+                  <p>A grand arch, floral curves, and golden glow echo the start of a new chapter.</p>
+                </div>
+              </article>
+
+              <article class="gallery-card delay-2">
+                <div class="gallery-art">
+                  <svg viewBox="0 0 600 760" aria-hidden="true">
+                    <defs>
+                      <linearGradient id="gB" x1="0%" x2="100%" y1="0%" y2="100%">
+                        <stop offset="0%" stop-color="#18372d"/>
+                        <stop offset="100%" stop-color="#091411"/>
+                      </linearGradient>
+                    </defs>
+                    <rect width="600" height="760" fill="url(#gB)"/>
+                    <circle cx="456" cy="132" r="78" fill="rgba(241,215,160,0.13)"/>
+                    <path d="M410 116a48 48 0 1 0 38 79 58 58 0 1 1-38-79Z" fill="#f1d7a0" fill-opacity=".78"/>
+                    <path d="M176 720V206" stroke="#d8b36c" stroke-opacity=".32" stroke-width="4"/>
+                    <path d="M300 720V164" stroke="#d8b36c" stroke-opacity=".32" stroke-width="4"/>
+                    <path d="M426 720V228" stroke="#d8b36c" stroke-opacity=".32" stroke-width="4"/>
+                    <g fill="none" stroke="#d8b36c" stroke-width="6">
+                      <path d="M146 206h60v108c0 36-60 36-60 0Z"/>
+                      <path d="M270 164h60v128c0 42-60 42-60 0Z"/>
+                      <path d="M396 228h60v98c0 34-60 34-60 0Z"/>
+                    </g>
+                    <g fill="#f1d7a0" fill-opacity=".75">
+                      <circle cx="176" cy="260" r="16"/>
+                      <circle cx="300" cy="214" r="20"/>
+                      <circle cx="426" cy="274" r="15"/>
+                    </g>
+                    <text x="300" y="618" fill="#f6efdf" font-family="Cormorant Garamond, serif" font-size="44" text-anchor="middle">Lanterns, Light</text>
+                    <text x="300" y="676" fill="#d8b36c" font-family="Great Vibes, cursive" font-size="76" text-anchor="middle">&amp; Prayer</text>
+                  </svg>
+                </div>
+                <div class="gallery-caption">
+                  <h3>Lanterns, Light &amp; Prayer</h3>
+                  <p>Warm lanterns floating beneath a crescent sky bring a serene Islamic mood.</p>
+                </div>
+              </article>
+
+              <article class="gallery-card delay-2">
+                <div class="gallery-art">
+                  <svg viewBox="0 0 600 760" aria-hidden="true">
+                    <defs>
+                      <linearGradient id="gC" x1="0%" x2="100%" y1="0%" y2="100%">
+                        <stop offset="0%" stop-color="#1d4034"/>
+                        <stop offset="100%" stop-color="#081310"/>
+                      </linearGradient>
+                    </defs>
+                    <rect width="600" height="760" fill="url(#gC)"/>
+                    <g fill="#f1d7a0" fill-opacity=".76">
+                      <circle cx="92" cy="106" r="3"/>
+                      <circle cx="148" cy="182" r="5"/>
+                      <circle cx="226" cy="136" r="4"/>
+                      <circle cx="318" cy="94" r="3"/>
+                      <circle cx="418" cy="174" r="5"/>
+                      <circle cx="520" cy="114" r="4"/>
+                    </g>
+                    <path d="M0 648h108v-26h14v-76c0-34 28-62 62-62s62 28 62 62v76h14v26h118v-32h12v-112h18v-28h12v28h18v112h12v32h118v-24h14v-64c0-30 25-55 55-55s55 25 55 55v64h14v24H600v112H0Z" fill="rgba(216,179,108,0.18)"/>
+                    <path d="M0 688h600" stroke="#d8b36c" stroke-opacity=".48" stroke-width="4"/>
+                    <circle cx="300" cy="278" r="132" fill="rgba(216,179,108,0.09)"/>
+                    <text x="300" y="264" fill="#f1d7a0" font-family="Great Vibes, cursive" font-size="108" text-anchor="middle">B &amp; R</text>
+                    <text x="300" y="340" fill="#f6efdf" font-family="Cormorant Garamond, serif" font-size="42" text-anchor="middle">19 May 2026</text>
+                    <text x="300" y="388" fill="#d8b36c" font-family="Cormorant Garamond, serif" font-size="28" text-anchor="middle" letter-spacing="8">NIKAH NIGHT</text>
+                  </svg>
+                </div>
+                <div class="gallery-caption">
+                  <h3>Under The Minarets</h3>
+                  <p>Golden domes and a soft skyline honor the sacred beauty of the evening.</p>
+                </div>
+              </article>
+
+              <article class="gallery-card delay-3">
+                <div class="gallery-art">
+                  <svg viewBox="0 0 600 760" aria-hidden="true">
+                    <defs>
+                      <linearGradient id="gD" x1="0%" x2="100%" y1="0%" y2="100%">
+                        <stop offset="0%" stop-color="#17352b"/>
+                        <stop offset="100%" stop-color="#091411"/>
+                      </linearGradient>
+                    </defs>
+                    <rect width="600" height="760" fill="url(#gD)"/>
+                    <path d="M154 144c70 0 112 66 118 132 6-66 48-132 118-132 56 0 100 46 100 104 0 122-122 208-218 284C176 456 54 370 54 248c0-58 44-104 100-104Z" fill="rgba(216,179,108,0.12)" stroke="#d8b36c" stroke-opacity=".46" stroke-width="6"/>
+                    <circle cx="196" cy="246" r="56" fill="none" stroke="#f1d7a0" stroke-opacity=".55" stroke-width="8"/>
+                    <circle cx="242" cy="246" r="56" fill="none" stroke="#f1d7a0" stroke-opacity=".55" stroke-width="8"/>
+                    <path d="M138 602c58-28 100-78 126-148 26 70 68 120 126 148" fill="none" stroke="#d8b36c" stroke-opacity=".3" stroke-width="7"/>
+                    <circle cx="174" cy="562" r="10" fill="#f1d7a0"/>
+                    <circle cx="300" cy="520" r="12" fill="#f1d7a0"/>
+                    <circle cx="426" cy="562" r="10" fill="#f1d7a0"/>
+                    <text x="300" y="632" fill="#f6efdf" font-family="Cormorant Garamond, serif" font-size="44" text-anchor="middle">A bond shaped by</text>
+                    <text x="300" y="688" fill="#d8b36c" font-family="Great Vibes, cursive" font-size="74" text-anchor="middle">Mercy &amp; Love</text>
+                  </svg>
+                </div>
+                <div class="gallery-caption">
+                  <h3>Mercy &amp; Love</h3>
+                  <p>A gentle symbol of togetherness, glowing softly with a premium invitation feel.</p>
+                </div>
+              </article>
+            </div>
+
+            <div class="story-card">
+              <h3>Our Story</h3>
+              <p>
+                What began with sincere duas and the blessing of family has blossomed into a bond filled with
+                trust, kindness, and hope. On this special evening, we would love for you to stand with us,
+                share your prayers, and celebrate a new beginning for Bilal and Rhenuma.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>With <strong>Love &amp; Best Wishes</strong></p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const eventConfig = {
+      groom: "Bilal",
+      bride: "Rhenuma",
+      dateShort: "19 May 2026",
+      dateLabel: "Tuesday, 19 May 2026",
+      timeLabel: "7:00 PM",
+      venueShort: "AWAM Banquet Hall",
+      venueName: "AWAM Banquet Hall, Moh. Peerzadgan, Bachhraon, Uttar Pradesh 244225",
+      venueMapQuery: "AWAM Banquet Hall, Moh. Peerzadgan, Bachhraon, Uttar Pradesh 244225",
+      venueLink: "https://maps.app.goo.gl/GDvSAw6V8q8TRQuY8?g_st=aw",
+      walimaDateLabel: "Wednesday, 20 May 2026",
+      walimaVenueName: "Umar Gardan, Kuankhera",
+      walimaVenueMapQuery: "Umar Gardan Kuankhera",
+      countdownTarget: "2026-05-19T19:00:00+05:30"
+    };
+
+    const targetDate = new Date(eventConfig.countdownTarget);
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
+    const countdownNote = document.getElementById("countdownNote");
+    const music = document.getElementById("bgMusic");
+    const musicToggle = document.getElementById("musicToggle");
+    const musicLabel = document.getElementById("musicLabel");
+    const viewInvitation = document.getElementById("viewInvitation");
+    const shareLink = document.getElementById("whatsappShare");
+    const mapLink = document.getElementById("mapLink");
+    const nikahMapLink = document.getElementById("nikahMapLink");
+    const walimaMapLink = document.getElementById("walimaMapLink");
+    const venueMap = document.getElementById("venueMap");
+
+    document.querySelectorAll('[data-bind="groom"]').forEach((element) => {
+      element.textContent = eventConfig.groom;
+    });
+
+    document.querySelectorAll('[data-bind="bride"]').forEach((element) => {
+      element.textContent = eventConfig.bride;
+    });
+
+    document.getElementById("heroDate").textContent = eventConfig.dateShort;
+    document.getElementById("heroTime").textContent = eventConfig.timeLabel;
+    document.getElementById("heroVenue").textContent = eventConfig.venueShort;
+    document.getElementById("detailDate").textContent = eventConfig.dateLabel;
+    document.getElementById("detailTime").textContent = eventConfig.timeLabel + " onward";
+    document.getElementById("detailVenue").textContent = eventConfig.venueName;
+    document.getElementById("nikahDate").textContent = eventConfig.dateLabel;
+    document.getElementById("nikahTime").textContent = eventConfig.timeLabel + " onward";
+    document.getElementById("nikahVenue").textContent = eventConfig.venueName;
+    document.getElementById("walimaDate").textContent = eventConfig.walimaDateLabel;
+    document.getElementById("walimaVenue").textContent = eventConfig.walimaVenueName;
+    venueMap.src =
+      "https://www.google.com/maps?q=" +
+      encodeURIComponent(eventConfig.venueMapQuery) +
+      "&z=14&output=embed";
+    mapLink.href = eventConfig.venueLink;
+    nikahMapLink.href = eventConfig.venueLink;
+    walimaMapLink.href =
+      "https://www.google.com/maps?q=" + encodeURIComponent(eventConfig.walimaVenueMapQuery);
+
+    function pad(value) {
+      return String(value).padStart(2, "0");
+    }
+
+    function updateCountdown() {
+      const diff = targetDate.getTime() - Date.now();
+
+      if (diff <= 0) {
+        daysEl.textContent = "00";
+        hoursEl.textContent = "00";
+        minutesEl.textContent = "00";
+        secondsEl.textContent = "00";
+        countdownNote.textContent = "The blessed day has arrived. We look forward to celebrating with you.";
+        return;
+      }
+
+      const totalSeconds = Math.floor(diff / 1000);
+      const days = Math.floor(totalSeconds / 86400);
+      const hours = Math.floor((totalSeconds % 86400) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+
+      daysEl.textContent = pad(days);
+      hoursEl.textContent = pad(hours);
+      minutesEl.textContent = pad(minutes);
+      secondsEl.textContent = pad(seconds);
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    const revealItems = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.18 }
+      );
+
+      revealItems.forEach((item) => revealObserver.observe(item));
+    } else {
+      revealItems.forEach((item) => item.classList.add("is-visible"));
+    }
+
+    const shareMessage =
+      "Bismillah! You are invited to the wedding of " +
+      eventConfig.groom +
+      " and " +
+      eventConfig.bride +
+      ". Nikah on " +
+      eventConfig.dateLabel +
+      " at " +
+      eventConfig.timeLabel +
+      " at " +
+      eventConfig.venueName +
+      ". Walima on " +
+      eventConfig.walimaDateLabel +
+      " at " +
+      eventConfig.walimaVenueName +
+      ".";
+
+    shareLink.href = "https://wa.me/?text=" + encodeURIComponent(shareMessage);
+
+    function writeString(view, offset, text) {
+      for (let index = 0; index < text.length; index += 1) {
+        view.setUint8(offset + index, text.charCodeAt(index));
+      }
+    }
+
+    function createAmbientWavUrl() {
+      const sampleRate = 24000;
+      const duration = 16;
+      const totalSamples = sampleRate * duration;
+      const melody = [196, 220, 247, 294, 330, 294, 247, 220];
+      const support = [147, 165, 185, 196, 220, 196, 185, 165];
+      const segment = duration / melody.length;
+      const samples = new Float32Array(totalSamples);
+
+      for (let i = 0; i < totalSamples; i += 1) {
+        const t = i / sampleRate;
+        const noteIndex = Math.min(melody.length - 1, Math.floor(t / segment));
+        const freq = melody[noteIndex];
+        const bassFreq = support[noteIndex];
+        const localT = t - noteIndex * segment;
+        const attack = Math.min(1, localT / 0.7);
+        const release = Math.min(1, Math.max(0, segment - localT) / 1.1);
+        const envelope = Math.pow(attack * release, 0.9);
+        const bellEnvelope = Math.exp(-3.2 * localT);
+        const vibrato = 1 + 0.0028 * Math.sin(2 * Math.PI * 4.2 * t);
+        const slowSway = Math.sin(2 * Math.PI * 0.11 * t);
+        const masterFade =
+          Math.min(1, t / 1.4) *
+          Math.min(1, Math.max(0.18, duration - t) / 1.5);
+
+        const drone =
+          Math.sin(2 * Math.PI * bassFreq * 0.5 * t) * 0.08 +
+          Math.sin(2 * Math.PI * bassFreq * 0.25 * t + 0.4) * 0.04;
+        const pad =
+          Math.sin(2 * Math.PI * freq * vibrato * t) * 0.11 +
+          Math.sin(2 * Math.PI * freq * 0.5 * t + slowSway * 0.35) * 0.08;
+        const harmony =
+          Math.sin(2 * Math.PI * freq * 1.25 * t + 0.25) * 0.04 +
+          Math.sin(2 * Math.PI * freq * 1.5 * t + slowSway * 0.2) * 0.025;
+        const bell =
+          Math.sin(2 * Math.PI * freq * 2 * t) * 0.022 * bellEnvelope +
+          Math.sin(2 * Math.PI * freq * 3 * t) * 0.012 * bellEnvelope;
+
+        samples[i] = (drone + (pad + harmony) * envelope + bell) * 0.62 * masterFade;
+      }
+
+      const buffer = new ArrayBuffer(44 + samples.length * 2);
+      const view = new DataView(buffer);
+      const bytesPerSample = 2;
+      const dataSize = samples.length * bytesPerSample;
+
+      writeString(view, 0, "RIFF");
+      view.setUint32(4, 36 + dataSize, true);
+      writeString(view, 8, "WAVE");
+      writeString(view, 12, "fmt ");
+      view.setUint32(16, 16, true);
+      view.setUint16(20, 1, true);
+      view.setUint16(22, 1, true);
+      view.setUint32(24, sampleRate, true);
+      view.setUint32(28, sampleRate * bytesPerSample, true);
+      view.setUint16(32, bytesPerSample, true);
+      view.setUint16(34, 16, true);
+      writeString(view, 36, "data");
+      view.setUint32(40, dataSize, true);
+
+      let offset = 44;
+      for (let i = 0; i < samples.length; i += 1) {
+        const sample = Math.max(-1, Math.min(1, samples[i]));
+        view.setInt16(offset, sample < 0 ? sample * 0x8000 : sample * 0x7fff, true);
+        offset += 2;
+      }
+
+      const blob = new Blob([buffer], { type: "audio/wav" });
+      return URL.createObjectURL(blob);
+    }
+
+    let musicReady = false;
+
+    function updateMusicUi() {
+      const isOn = !music.muted && !music.paused;
+      musicToggle.classList.toggle("is-on", isOn);
+      musicLabel.textContent = isOn ? "Music On" : "Music Off";
+    }
+
+    async function primeMusic() {
+      if (!musicReady) {
+        music.src = createAmbientWavUrl();
+        music.volume = 0.34;
+        musicReady = true;
+      }
+
+      try {
+        await music.play();
+      } catch (error) {
+        return;
+      }
+    }
+
+    async function toggleMusic() {
+      await primeMusic();
+
+      if (music.paused) {
+        await music.play().catch(() => {});
+      }
+
+      music.muted = !music.muted;
+      updateMusicUi();
+    }
+
+    musicToggle.addEventListener("click", toggleMusic);
+
+    document.addEventListener(
+      "pointerdown",
+      () => {
+        primeMusic();
+      },
+      { once: true }
+    );
+
+    viewInvitation.addEventListener("click", () => {
+      primeMusic();
+    });
+
+    updateMusicUi();
+  </script>
+</body>
+</html>
