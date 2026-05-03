@@ -16,21 +16,27 @@
   >
   <style>
     :root {
-      --bg: #071612;
-      --bg-soft: #0d241d;
-      --panel: rgba(14, 35, 29, 0.76);
-      --panel-strong: rgba(8, 22, 18, 0.92);
-      --gold: #d8b36c;
-      --gold-soft: #f1d7a0;
-      --cream: #f6efdf;
-      --cream-soft: #d9cfbc;
-      --green-light: #1f4d3f;
-      --shadow: 0 28px 70px rgba(0, 0, 0, 0.34);
-      --radius: 28px;
-      --radius-lg: 40px;
+      --bg: #081511;
+      --bg-deep: #040d0b;
+      --bg-soft: #112720;
+      --panel: rgba(13, 31, 25, 0.74);
+      --panel-soft: rgba(251, 245, 232, 0.045);
+      --panel-strong: rgba(7, 18, 15, 0.86);
+      --gold: #d6b36f;
+      --gold-soft: #efddb2;
+      --gold-pastel: #f4ead0;
+      --cream: #fbf5e8;
+      --cream-soft: #d6cfbf;
+      --mint: #97b4a7;
+      --green-light: #1d4f42;
+      --line: rgba(239, 221, 178, 0.16);
+      --shadow: 0 30px 90px rgba(0, 0, 0, 0.28);
+      --shadow-soft: 0 18px 42px rgba(0, 0, 0, 0.18);
+      --radius: 24px;
+      --radius-lg: 34px;
       --max-width: 1120px;
       --transition: 320ms ease;
-      --pattern: rgba(216, 179, 108, 0.08);
+      --pattern: rgba(239, 221, 178, 0.05);
       color-scheme: dark;
     }
 
@@ -47,10 +53,10 @@
       font-family: "Manrope", sans-serif;
       color: var(--cream);
       background:
-        radial-gradient(circle at top, rgba(59, 116, 95, 0.26), transparent 33%),
-        radial-gradient(circle at 80% 10%, rgba(216, 179, 108, 0.13), transparent 22%),
-        radial-gradient(circle at 10% 25%, rgba(216, 179, 108, 0.09), transparent 18%),
-        linear-gradient(180deg, #0b1c18 0%, #071612 35%, #05100d 100%);
+        radial-gradient(circle at 12% 14%, rgba(151, 180, 167, 0.14), transparent 24%),
+        radial-gradient(circle at 84% 10%, rgba(239, 221, 178, 0.11), transparent 18%),
+        radial-gradient(circle at 50% 22%, rgba(52, 96, 80, 0.2), transparent 28%),
+        linear-gradient(180deg, #11211c 0%, var(--bg) 34%, var(--bg-deep) 100%);
       min-height: 100vh;
       overflow-x: hidden;
       position: relative;
@@ -61,11 +67,65 @@
       position: fixed;
       inset: 0;
       pointer-events: none;
-      opacity: 0.45;
+      opacity: 0.28;
       background:
-        radial-gradient(circle at 0 0, transparent 22px, var(--pattern) 23px, transparent 24px) 0 0 / 72px 72px,
-        radial-gradient(circle at 36px 36px, transparent 22px, var(--pattern) 23px, transparent 24px) 0 0 / 72px 72px;
-      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 88%);
+        linear-gradient(120deg, transparent 0%, rgba(239, 221, 178, 0.04) 46%, transparent 100%),
+        radial-gradient(circle at 0 0, transparent 24px, var(--pattern) 25px, transparent 26px) 0 0 / 88px 88px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent 92%);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: -18% -8% auto;
+      height: 70vh;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 20% 25%, rgba(151, 180, 167, 0.08), transparent 28%),
+        radial-gradient(circle at 78% 18%, rgba(239, 221, 178, 0.08), transparent 24%),
+        radial-gradient(circle at 50% 50%, rgba(29, 79, 66, 0.2), transparent 42%);
+      filter: blur(18px);
+      z-index: -1;
+    }
+
+    body.theme-light {
+      --bg: #eef3eb;
+      --bg-deep: #dfe7dd;
+      --bg-soft: #f6f2e8;
+      --panel: rgba(255, 255, 255, 0.56);
+      --panel-soft: rgba(255, 255, 255, 0.42);
+      --panel-strong: rgba(247, 250, 244, 0.76);
+      --gold: #c39a56;
+      --gold-soft: #9a7740;
+      --gold-pastel: #f5e7bf;
+      --cream: #163128;
+      --cream-soft: #587061;
+      --mint: #7fa091;
+      --green-light: #dfeadf;
+      --line: rgba(77, 109, 96, 0.16);
+      --shadow: 0 26px 70px rgba(24, 43, 35, 0.12);
+      --shadow-soft: 0 16px 32px rgba(24, 43, 35, 0.08);
+      --pattern: rgba(49, 84, 70, 0.05);
+      color-scheme: light;
+      background:
+        radial-gradient(circle at 12% 14%, rgba(165, 192, 179, 0.22), transparent 24%),
+        radial-gradient(circle at 84% 10%, rgba(227, 204, 156, 0.18), transparent 18%),
+        radial-gradient(circle at 50% 22%, rgba(201, 219, 208, 0.46), transparent 30%),
+        linear-gradient(180deg, #fbfaf4 0%, var(--bg) 40%, var(--bg-deep) 100%);
+    }
+
+    body.theme-light::before {
+      opacity: 0.38;
+      background:
+        linear-gradient(120deg, transparent 0%, rgba(214, 179, 111, 0.08) 46%, transparent 100%),
+        radial-gradient(circle at 0 0, transparent 24px, var(--pattern) 25px, transparent 26px) 0 0 / 88px 88px;
+    }
+
+    body.theme-light::after {
+      background:
+        radial-gradient(circle at 20% 25%, rgba(158, 190, 176, 0.18), transparent 28%),
+        radial-gradient(circle at 78% 18%, rgba(227, 204, 156, 0.16), transparent 24%),
+        radial-gradient(circle at 50% 50%, rgba(169, 191, 180, 0.26), transparent 42%);
     }
 
     a {
@@ -88,6 +148,89 @@
       isolation: isolate;
     }
 
+    .ambient-lights,
+    .particle-field {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .ambient-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(14px);
+      opacity: 0.55;
+      animation: pulseGlow 14s ease-in-out infinite;
+    }
+
+    .ambient-orb.orb-1 {
+      top: 4%;
+      left: -2%;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(239, 221, 178, 0.18), transparent 68%);
+      animation-delay: -3s;
+    }
+
+    .ambient-orb.orb-2 {
+      top: 32%;
+      right: -6%;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(151, 180, 167, 0.16), transparent 72%);
+      animation-delay: -8s;
+    }
+
+    .ambient-orb.orb-3 {
+      bottom: 12%;
+      left: 8%;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(214, 179, 111, 0.14), transparent 66%);
+      animation-delay: -5s;
+    }
+
+    .ambient-orb.orb-4 {
+      bottom: -4%;
+      right: 12%;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(121, 157, 143, 0.14), transparent 72%);
+      animation-delay: -10s;
+    }
+
+    .particle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(250, 242, 223, 0.8);
+      box-shadow: 0 0 18px rgba(239, 221, 178, 0.34);
+      opacity: 0.5;
+      animation: floatParticle 18s linear infinite;
+    }
+
+    .particle::after {
+      content: "";
+      position: absolute;
+      inset: -10px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(250, 242, 223, 0.22), transparent 72%);
+    }
+
+    .particle.p1 { top: 11%; left: 12%; animation-duration: 17s; animation-delay: -2s; }
+    .particle.p2 { top: 20%; left: 78%; width: 5px; height: 5px; animation-duration: 21s; animation-delay: -7s; }
+    .particle.p3 { top: 36%; left: 18%; width: 4px; height: 4px; animation-duration: 19s; animation-delay: -4s; }
+    .particle.p4 { top: 46%; left: 86%; animation-duration: 22s; animation-delay: -12s; }
+    .particle.p5 { top: 58%; left: 8%; width: 5px; height: 5px; animation-duration: 18s; animation-delay: -6s; }
+    .particle.p6 { top: 63%; left: 64%; width: 4px; height: 4px; animation-duration: 20s; animation-delay: -14s; }
+    .particle.p7 { top: 74%; left: 28%; animation-duration: 16s; animation-delay: -9s; }
+    .particle.p8 { top: 78%; left: 82%; width: 5px; height: 5px; animation-duration: 23s; animation-delay: -5s; }
+    .particle.p9 { top: 27%; left: 48%; width: 4px; height: 4px; animation-duration: 24s; animation-delay: -11s; }
+    .particle.p10 { top: 86%; left: 56%; animation-duration: 18s; animation-delay: -3s; }
+
     .container {
       width: min(calc(100% - 32px), var(--max-width));
       margin: 0 auto;
@@ -98,18 +241,20 @@
       display: grid;
       place-items: center;
       position: relative;
-      padding: 32px 0 88px;
+      perspective: 1800px;
+      z-index: 1;
+      padding: 40px 0 96px;
       overflow: hidden;
     }
 
     .hero::before {
       content: "";
       position: absolute;
-      inset: 10% 18% auto;
-      height: 360px;
+      inset: 8% 12% auto;
+      height: 420px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(216, 179, 108, 0.16), transparent 70%);
-      filter: blur(24px);
+      background: radial-gradient(circle, rgba(239, 221, 178, 0.16), transparent 68%);
+      filter: blur(26px);
       z-index: -2;
     }
 
@@ -120,13 +265,13 @@
     }
 
     .hero-glow {
-      width: 12px;
-      height: 12px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
-      background: rgba(255, 242, 214, 0.92);
-      box-shadow: 0 0 18px rgba(241, 215, 160, 0.95), 0 0 48px rgba(241, 215, 160, 0.35);
-      animation: drift 8s ease-in-out infinite;
-      opacity: 0.85;
+      background: rgba(255, 248, 230, 0.94);
+      box-shadow: 0 0 20px rgba(239, 221, 178, 0.9), 0 0 48px rgba(239, 221, 178, 0.24);
+      animation: drift 10s ease-in-out infinite;
+      opacity: 0.8;
     }
 
     .hero-glow.g1 { top: 18%; left: 12%; animation-delay: -1s; }
@@ -136,15 +281,16 @@
     .hero-glow.g5 { top: 74%; right: 22%; width: 9px; height: 9px; animation-delay: -4s; }
 
     .hero-lantern {
-      width: 46px;
-      height: 86px;
-      border: 1px solid rgba(216, 179, 108, 0.35);
+      width: 34px;
+      height: 70px;
+      border: 1px solid rgba(239, 221, 178, 0.2);
       border-radius: 14px 14px 18px 18px;
       background:
-        linear-gradient(180deg, rgba(216, 179, 108, 0.12), rgba(216, 179, 108, 0.02)),
-        radial-gradient(circle at 50% 52%, rgba(241, 215, 160, 0.64), transparent 44%);
-      box-shadow: 0 0 0 1px rgba(216, 179, 108, 0.1), 0 0 26px rgba(216, 179, 108, 0.16);
-      animation: lanternFloat 7s ease-in-out infinite;
+        linear-gradient(180deg, rgba(239, 221, 178, 0.1), rgba(239, 221, 178, 0.02)),
+        radial-gradient(circle at 50% 52%, rgba(239, 221, 178, 0.4), transparent 44%);
+      box-shadow: 0 0 0 1px rgba(239, 221, 178, 0.06), 0 0 22px rgba(239, 221, 178, 0.12);
+      animation: lanternFloat 9s ease-in-out infinite;
+      opacity: 0.55;
     }
 
     .hero-lantern::before,
@@ -154,19 +300,19 @@
       left: 50%;
       transform: translateX(-50%);
       border-radius: 999px;
-      background: rgba(216, 179, 108, 0.88);
+      background: rgba(239, 221, 178, 0.7);
     }
 
     .hero-lantern::before {
-      top: -22px;
+      top: -18px;
       width: 2px;
-      height: 22px;
+      height: 18px;
     }
 
     .hero-lantern::after {
       left: 50%;
       bottom: 12px;
-      width: 16px;
+      width: 12px;
       height: 2px;
       transform: translateX(-50%);
     }
@@ -176,16 +322,23 @@
     .hero-lantern.l3 { bottom: 18%; left: 4%; width: 38px; height: 74px; animation-delay: -1s; }
 
     .hero-card {
-      width: min(100%, 900px);
-      padding: 84px 22px 48px;
+      width: min(100%, 860px);
+      padding: 76px 26px 46px;
       position: relative;
       text-align: center;
       background:
-        linear-gradient(180deg, rgba(18, 43, 36, 0.85), rgba(8, 22, 18, 0.94));
-      border: 1px solid rgba(216, 179, 108, 0.22);
-      border-radius: 220px 220px 30px 30px / 180px 180px 30px 30px;
-      box-shadow: var(--shadow);
+        linear-gradient(180deg, rgba(18, 42, 35, 0.72), rgba(8, 22, 18, 0.88));
+      border: 1px solid rgba(239, 221, 178, 0.16);
+      border-radius: 38px;
+      box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(24px) saturate(138%);
       overflow: hidden;
+      transform-style: preserve-3d;
+      will-change: transform;
+      transform:
+        translate3d(var(--parallax-x, 0px), calc(var(--parallax-y, 0px) + var(--scroll-shift, 0px)), 0)
+        rotateX(var(--tilt-x, 0deg))
+        rotateY(var(--tilt-y, 0deg));
       animation: heroFade 1.4s ease both;
     }
 
@@ -193,32 +346,39 @@
     .hero-card::after {
       content: "";
       position: absolute;
-      width: 180px;
-      height: 180px;
-      border: 1px solid rgba(216, 179, 108, 0.16);
       border-radius: 50%;
-      filter: blur(0.2px);
     }
 
     .hero-card::before {
-      top: -84px;
-      left: -40px;
+      top: -100px;
+      right: -60px;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(239, 221, 178, 0.14), transparent 68%);
+      filter: blur(8px);
     }
 
     .hero-card::after {
-      bottom: -90px;
-      right: -30px;
+      left: 12%;
+      right: 12%;
+      bottom: 0;
+      width: auto;
+      height: 1px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, rgba(239, 221, 178, 0.36), transparent);
     }
 
     .hero-card-inner {
       position: relative;
       z-index: 1;
+      transform: translateZ(26px);
+      transform-style: preserve-3d;
     }
 
     .eyebrow {
-      margin: 0 0 14px;
+      margin: 0 0 16px;
       font-size: 0.8rem;
-      letter-spacing: 0.32em;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
       color: var(--gold-soft);
     }
@@ -229,31 +389,31 @@
       font-size: clamp(3.4rem, 14vw, 7rem);
       line-height: 0.96;
       color: var(--cream);
-      text-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+      text-shadow: 0 10px 26px rgba(0, 0, 0, 0.22);
     }
 
     .hero-title .heart {
       font-size: 0.5em;
-      color: var(--gold-soft);
+      color: var(--gold-pastel);
       vertical-align: middle;
       margin: 0 0.08em;
-      filter: drop-shadow(0 0 18px rgba(216, 179, 108, 0.4));
+      filter: drop-shadow(0 0 18px rgba(239, 221, 178, 0.34));
     }
 
     .hero-subtitle {
       margin: 18px 0 10px;
       font-family: "Cormorant Garamond", serif;
       font-size: clamp(1.6rem, 4vw, 2.6rem);
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--gold-soft);
     }
 
     .hero-copy {
-      width: min(100%, 540px);
-      margin: 0 auto 28px;
-      font-size: 0.98rem;
-      line-height: 1.75;
+      width: min(100%, 560px);
+      margin: 0 auto 30px;
+      font-size: 1rem;
+      line-height: 1.85;
       color: var(--cream-soft);
     }
 
@@ -263,16 +423,18 @@
       justify-content: center;
       gap: 10px;
       margin-bottom: 28px;
+      transform: translateZ(20px);
     }
 
     .meta-pill {
-      padding: 11px 16px;
+      padding: 11px 18px;
       border-radius: 999px;
-      background: rgba(246, 239, 223, 0.06);
-      border: 1px solid rgba(216, 179, 108, 0.2);
+      background: rgba(251, 245, 232, 0.05);
+      border: 1px solid rgba(239, 221, 178, 0.16);
       color: var(--cream);
       font-size: 0.84rem;
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(14px);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
     }
 
     .actions,
@@ -281,6 +443,7 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 14px;
+      transform: translateZ(28px);
     }
 
     .btn {
@@ -290,7 +453,7 @@
       gap: 10px;
       min-width: 170px;
       padding: 14px 22px;
-      border-radius: 999px;
+      border-radius: 18px;
       border: 1px solid transparent;
       transition: transform var(--transition), box-shadow var(--transition), background var(--transition), border-color var(--transition);
       font-weight: 700;
@@ -304,69 +467,75 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #ebcd90, #c79e54);
+      background: linear-gradient(135deg, #f3e4bb, #d1ab63);
       color: #172117;
+      box-shadow: 0 14px 30px rgba(214, 179, 111, 0.18);
     }
 
     .btn-secondary {
-      background: rgba(246, 239, 223, 0.05);
-      border-color: rgba(216, 179, 108, 0.25);
+      background: rgba(251, 245, 232, 0.05);
+      border-color: rgba(239, 221, 178, 0.18);
       color: var(--cream);
     }
 
     .mosque-line {
       position: absolute;
       inset: auto 0 0;
-      opacity: 0.18;
+      opacity: 0.09;
       z-index: 0;
     }
 
     main {
       position: relative;
+      perspective: 1600px;
+      perspective-origin: center top;
       z-index: 1;
       padding-bottom: 44px;
     }
 
     .section {
-      padding: 42px 0;
+      padding: 40px 0;
     }
 
     .section-shell {
       position: relative;
-      padding: 28px 20px;
+      padding: 30px 22px;
       border-radius: var(--radius-lg);
       background:
-        linear-gradient(180deg, rgba(19, 47, 38, 0.88), rgba(7, 20, 16, 0.94));
-      border: 1px solid rgba(216, 179, 108, 0.16);
-      box-shadow: var(--shadow);
+        linear-gradient(180deg, rgba(18, 40, 34, 0.7), rgba(8, 19, 16, 0.86));
+      border: 1px solid rgba(239, 221, 178, 0.12);
+      box-shadow: 0 24px 56px rgba(0, 0, 0, 0.18);
       overflow: hidden;
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(22px) saturate(132%);
+      transform-style: preserve-3d;
+      will-change: transform;
+      transform: translate3d(0, var(--scroll-shift, 0px), 0) rotateX(var(--scroll-tilt, 0deg));
     }
 
     .section-shell::before,
     .section-shell::after {
       content: "";
       position: absolute;
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      border: 1px solid rgba(216, 179, 108, 0.13);
-      opacity: 0.8;
+      inset: 1px;
+      border-radius: calc(var(--radius-lg) - 1px);
+      pointer-events: none;
     }
 
     .section-shell::before {
-      top: -44px;
-      left: -36px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 28%);
+      opacity: 0.9;
     }
 
     .section-shell::after {
-      bottom: -56px;
-      right: -42px;
+      inset: auto 12% 0;
+      height: 1px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, rgba(239, 221, 178, 0.28), transparent);
     }
 
     .section-head {
       text-align: center;
-      margin-bottom: 28px;
+      margin-bottom: 30px;
       position: relative;
       z-index: 1;
     }
@@ -391,8 +560,8 @@
       width: min(100%, 680px);
       margin: 0 auto;
       color: var(--cream-soft);
-      line-height: 1.8;
-      font-size: 0.98rem;
+      line-height: 1.85;
+      font-size: 1rem;
     }
 
     .countdown-grid {
@@ -406,14 +575,23 @@
 
     .time-card {
       position: relative;
-      padding: 20px 14px;
+      padding: 22px 16px;
       border-radius: var(--radius);
       text-align: center;
       background:
-        radial-gradient(circle at top, rgba(216, 179, 108, 0.12), transparent 55%),
-        rgba(246, 239, 223, 0.045);
-      border: 1px solid rgba(216, 179, 108, 0.18);
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+        linear-gradient(180deg, rgba(251, 245, 232, 0.05), rgba(251, 245, 232, 0.025));
+      border: 1px solid rgba(239, 221, 178, 0.12);
+      box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(14px);
+      overflow: hidden;
+    }
+
+    .time-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(239, 221, 178, 0.42), transparent);
     }
 
     .time-value {
@@ -451,24 +629,26 @@
 
     .detail-card {
       display: grid;
-      grid-template-columns: 50px 1fr;
+      grid-template-columns: 56px 1fr;
       gap: 14px;
       align-items: center;
       padding: 18px 18px;
       border-radius: var(--radius);
-      background: rgba(246, 239, 223, 0.045);
-      border: 1px solid rgba(216, 179, 108, 0.15);
+      background: linear-gradient(180deg, rgba(251, 245, 232, 0.05), rgba(251, 245, 232, 0.03));
+      border: 1px solid rgba(239, 221, 178, 0.12);
+      box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(18px) saturate(128%);
     }
 
     .detail-icon {
-      width: 50px;
-      height: 50px;
+      width: 56px;
+      height: 56px;
       display: grid;
       place-items: center;
-      border-radius: 18px;
-      background: linear-gradient(180deg, rgba(216, 179, 108, 0.22), rgba(216, 179, 108, 0.06));
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(239, 221, 178, 0.16), rgba(239, 221, 178, 0.05));
       color: var(--gold-soft);
-      box-shadow: inset 0 0 0 1px rgba(216, 179, 108, 0.18);
+      box-shadow: inset 0 0 0 1px rgba(239, 221, 178, 0.12);
     }
 
     .detail-label {
@@ -505,10 +685,10 @@
       padding: 22px 20px;
       border-radius: var(--radius);
       background:
-        radial-gradient(circle at top right, rgba(216, 179, 108, 0.14), transparent 40%),
-        rgba(246, 239, 223, 0.045);
-      border: 1px solid rgba(216, 179, 108, 0.18);
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+        linear-gradient(180deg, rgba(251, 245, 232, 0.05), rgba(251, 245, 232, 0.03));
+      border: 1px solid rgba(239, 221, 178, 0.12);
+      box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(18px) saturate(128%);
     }
 
     .event-chip {
@@ -516,7 +696,7 @@
       align-items: center;
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(216, 179, 108, 0.12);
+      background: rgba(239, 221, 178, 0.1);
       color: var(--gold-soft);
       font-size: 0.75rem;
       font-weight: 800;
@@ -549,8 +729,8 @@
       gap: 4px;
       padding: 12px 14px;
       border-radius: 18px;
-      background: rgba(7, 18, 15, 0.42);
-      border: 1px solid rgba(216, 179, 108, 0.1);
+      background: rgba(7, 18, 15, 0.36);
+      border: 1px solid rgba(239, 221, 178, 0.08);
     }
 
     .event-row span:first-child {
@@ -577,8 +757,10 @@
     .message-card,
     .story-card {
       border-radius: var(--radius);
-      background: rgba(246, 239, 223, 0.045);
-      border: 1px solid rgba(216, 179, 108, 0.15);
+      background: linear-gradient(180deg, rgba(251, 245, 232, 0.05), rgba(251, 245, 232, 0.03));
+      border: 1px solid rgba(239, 221, 178, 0.12);
+      box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(18px) saturate(128%);
       overflow: hidden;
     }
 
@@ -607,7 +789,7 @@
       height: 100%;
       min-height: 320px;
       border: 0;
-      filter: saturate(0.82) contrast(1.05);
+      filter: saturate(0.75) contrast(1.02) hue-rotate(-8deg);
     }
 
     .message-card {
@@ -620,11 +802,11 @@
     .message-card::before {
       content: "";
       position: absolute;
-      inset: -20% auto auto -10%;
-      width: 220px;
-      height: 220px;
-      background: radial-gradient(circle, rgba(216, 179, 108, 0.12), transparent 70%);
-      filter: blur(6px);
+      inset: -16% auto auto -6%;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(239, 221, 178, 0.1), transparent 72%);
+      filter: blur(8px);
     }
 
     .message-bismillah {
@@ -667,23 +849,24 @@
       position: relative;
       overflow: hidden;
       border-radius: 26px;
-      border: 1px solid rgba(216, 179, 108, 0.16);
-      background: linear-gradient(180deg, rgba(12, 30, 25, 0.96), rgba(7, 18, 15, 0.98));
+      border: 1px solid rgba(239, 221, 178, 0.12);
+      background: linear-gradient(180deg, rgba(18, 40, 34, 0.76), rgba(8, 19, 16, 0.9));
       transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
-      box-shadow: 0 18px 34px rgba(0, 0, 0, 0.22);
+      box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(18px) saturate(132%);
     }
 
     .gallery-card:hover,
     .gallery-card:focus-within {
-      transform: translateY(-5px);
-      border-color: rgba(216, 179, 108, 0.3);
-      box-shadow: 0 22px 42px rgba(0, 0, 0, 0.28);
+      transform: translateY(-4px);
+      border-color: rgba(239, 221, 178, 0.22);
+      box-shadow: 0 22px 42px rgba(0, 0, 0, 0.22);
     }
 
     .gallery-art {
       aspect-ratio: 4 / 5;
       width: 100%;
-      background: linear-gradient(180deg, rgba(16, 42, 35, 0.96), rgba(8, 20, 17, 0.98));
+      background: linear-gradient(180deg, rgba(25, 54, 45, 0.9), rgba(9, 23, 19, 0.98));
     }
 
     .gallery-caption {
@@ -709,6 +892,8 @@
     }
 
     .footer {
+      position: relative;
+      z-index: 1;
       padding: 18px 0 48px;
       text-align: center;
       color: var(--cream-soft);
@@ -720,8 +905,19 @@
       font-weight: 700;
     }
 
+    .music-player-shell {
+      position: fixed;
+      right: -9999px;
+      bottom: -9999px;
+      width: 320px;
+      height: 180px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
     .music-toggle,
-    .whatsapp-fab {
+    .whatsapp-fab,
+    .theme-toggle {
       position: fixed;
       z-index: 20;
       display: inline-flex;
@@ -729,11 +925,11 @@
       gap: 10px;
       padding: 12px 16px;
       border-radius: 999px;
-      border: 1px solid rgba(216, 179, 108, 0.24);
-      background: rgba(7, 18, 15, 0.84);
-      backdrop-filter: blur(14px);
+      border: 1px solid rgba(239, 221, 178, 0.16);
+      background: rgba(8, 18, 15, 0.74);
+      backdrop-filter: blur(18px) saturate(145%);
       color: var(--cream);
-      box-shadow: 0 18px 28px rgba(0, 0, 0, 0.22);
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.05);
     }
 
     .music-toggle {
@@ -742,14 +938,69 @@
       cursor: pointer;
     }
 
+    .theme-toggle {
+      top: 16px;
+      right: 16px;
+      cursor: pointer;
+    }
+
     .music-toggle.is-on {
-      border-color: rgba(216, 179, 108, 0.42);
-      box-shadow: 0 18px 32px rgba(216, 179, 108, 0.12);
+      border-color: rgba(239, 221, 178, 0.34);
+      box-shadow: 0 18px 34px rgba(239, 221, 178, 0.12);
+      animation: buttonGlow 2.8s ease-in-out infinite;
+    }
+
+    .music-toggle:disabled {
+      opacity: 0.72;
+      cursor: not-allowed;
     }
 
     .whatsapp-fab {
       left: 16px;
       bottom: 16px;
+    }
+
+    body.theme-light .hero-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.56), rgba(247, 250, 244, 0.76));
+      border-color: rgba(127, 160, 145, 0.22);
+      box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.58);
+    }
+
+    body.theme-light .section-shell,
+    body.theme-light .detail-card,
+    body.theme-light .event-panel,
+    body.theme-light .gallery-card,
+    body.theme-light .map-card,
+    body.theme-light .info-card,
+    body.theme-light .message-card,
+    body.theme-light .story-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.56), rgba(247, 250, 244, 0.76));
+      border-color: rgba(127, 160, 145, 0.18);
+      box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.56);
+    }
+
+    body.theme-light .meta-pill,
+    body.theme-light .music-toggle,
+    body.theme-light .whatsapp-fab,
+    body.theme-light .theme-toggle,
+    body.theme-light .btn-secondary {
+      background: rgba(255, 255, 255, 0.54);
+      border-color: rgba(127, 160, 145, 0.18);
+      color: var(--cream);
+      box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    }
+
+    body.theme-light .event-row {
+      background: rgba(255, 255, 255, 0.48);
+      border-color: rgba(127, 160, 145, 0.12);
+    }
+
+    body.theme-light .gallery-art {
+      background: linear-gradient(180deg, rgba(214, 227, 220, 0.92), rgba(230, 237, 229, 0.98));
+    }
+
+    body.theme-light .map-card iframe {
+      filter: saturate(0.72) contrast(1.01) brightness(1.04);
     }
 
     .fab-icon {
@@ -760,13 +1011,33 @@
 
     .reveal {
       opacity: 0;
-      transform: translateY(26px);
+      transform: translateY(20px);
       transition: opacity 700ms ease, transform 700ms ease;
     }
 
     .reveal.is-visible {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    .time-card,
+    .detail-card,
+    .event-panel,
+    .gallery-card,
+    .story-card,
+    .message-card,
+    .info-card {
+      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .detail-card:hover,
+    .event-panel:hover,
+    .story-card:hover,
+    .message-card:hover,
+    .info-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(239, 221, 178, 0.18);
+      box-shadow: 0 20px 46px rgba(0, 0, 0, 0.2);
     }
 
     .delay-1 { transition-delay: 80ms; }
@@ -786,12 +1057,43 @@
 
     @keyframes lanternFloat {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(12px); }
+      50% { transform: translateY(10px); }
     }
 
     @keyframes drift {
       0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
       50% { transform: translate3d(8px, -10px, 0) scale(1.12); }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { transform: scale(1); opacity: 0.45; }
+      50% { transform: scale(1.08); opacity: 0.68; }
+    }
+
+    @keyframes floatParticle {
+      0% {
+        transform: translate3d(0, 0, 0) scale(0.92);
+        opacity: 0;
+      }
+      20% {
+        opacity: 0.48;
+      }
+      50% {
+        transform: translate3d(16px, -28px, 0) scale(1);
+        opacity: 0.65;
+      }
+      80% {
+        opacity: 0.3;
+      }
+      100% {
+        transform: translate3d(-10px, -54px, 0) scale(0.9);
+        opacity: 0;
+      }
+    }
+
+    @keyframes buttonGlow {
+      0%, 100% { box-shadow: 0 18px 34px rgba(239, 221, 178, 0.08); }
+      50% { box-shadow: 0 18px 38px rgba(239, 221, 178, 0.18); }
     }
 
     @media (min-width: 700px) {
@@ -800,7 +1102,7 @@
       }
 
       .hero-card {
-        padding: 96px 50px 58px;
+        padding: 88px 52px 56px;
       }
 
       .countdown-grid {
@@ -826,7 +1128,7 @@
       }
 
       .section-shell {
-        padding: 36px 34px;
+        padding: 38px 34px;
       }
 
       .details-layout {
@@ -841,13 +1143,14 @@
 
     @media (max-width: 420px) {
       .hero-card {
-        border-radius: 170px 170px 26px 26px / 140px 140px 26px 26px;
+        border-radius: 28px;
       }
 
       .btn {
         width: 100%;
       }
 
+      .theme-toggle span:last-child,
       .music-toggle span:last-child,
       .whatsapp-fab span:last-child {
         display: none;
@@ -866,6 +1169,17 @@
         transition: none !important;
       }
 
+      .particle-field,
+      .ambient-lights {
+        display: none;
+      }
+
+      .hero-card,
+      .section-shell,
+      .ambient-orb {
+        transform: none !important;
+      }
+
       .reveal {
         opacity: 1;
         transform: none;
@@ -875,7 +1189,38 @@
 </head>
 <body>
   <div class="page-shell">
-    <audio id="bgMusic" loop muted playsinline preload="auto"></audio>
+    <div class="ambient-lights" aria-hidden="true">
+      <span class="ambient-orb orb-1"></span>
+      <span class="ambient-orb orb-2"></span>
+      <span class="ambient-orb orb-3"></span>
+      <span class="ambient-orb orb-4"></span>
+    </div>
+
+    <div class="particle-field" aria-hidden="true">
+      <span class="particle p1"></span>
+      <span class="particle p2"></span>
+      <span class="particle p3"></span>
+      <span class="particle p4"></span>
+      <span class="particle p5"></span>
+      <span class="particle p6"></span>
+      <span class="particle p7"></span>
+      <span class="particle p8"></span>
+      <span class="particle p9"></span>
+      <span class="particle p10"></span>
+    </div>
+
+    <div class="music-player-shell" id="bgMusicPlayer" aria-hidden="true"></div>
+
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch theme" aria-pressed="false">
+      <svg class="fab-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          id="themeIconPath"
+          fill="currentColor"
+          d="M12 3.75a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0V4.5a.75.75 0 0 1 .75-.75Zm0 12a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Zm0 4.5a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5a.75.75 0 0 1 .75-.75Zm8.25-8.25a.75.75 0 0 1 .75.75.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 1 0-1.5h1.5ZM5.25 12a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1 0-1.5h1.5Zm10.584 5.334a.75.75 0 0 1 1.06 1.06l-1.06 1.061a.75.75 0 0 1-1.06-1.06l1.06-1.06ZM8.226 8.227a.75.75 0 0 1 1.06-1.06l1.061 1.06a.75.75 0 0 1-1.06 1.061L8.226 8.227Zm8.668-1.06a.75.75 0 0 1 0 1.06l-1.06 1.061a.75.75 0 0 1-1.061-1.06l1.06-1.061a.75.75 0 0 1 1.061 0ZM9.287 15.773a.75.75 0 0 1 0 1.06l-1.06 1.061a.75.75 0 1 1-1.061-1.06l1.06-1.061a.75.75 0 0 1 1.061 0Z"
+        />
+      </svg>
+      <span id="themeLabel">Light Mode</span>
+    </button>
 
     <a class="whatsapp-fab" id="whatsappShare" href="#" target="_blank" rel="noreferrer">
       <svg class="fab-icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -920,8 +1265,8 @@
 
             <div class="hero-meta">
               <span class="meta-pill" id="heroDate">19 May 2026</span>
-              <span class="meta-pill" id="heroTime">7:00 PM</span>
-              <span class="meta-pill" id="heroVenue">AWAM Banquet Hall</span>
+              <span class="meta-pill" id="heroTime">7:00 AM</span>
+              <span class="meta-pill" id="heroVenue">Humsafar Palace</span>
             </div>
 
             <div class="actions">
@@ -957,7 +1302,7 @@
               <p class="section-kicker">Celebration Begins In</p>
               <h2 class="section-title">Countdown To The Nikah</h2>
               <p class="section-copy">
-                Counting the precious moments until Tuesday, 19 May 2026 at 7:00 PM.
+                Counting the precious moments until Tuesday, 19 May 2026 at 7:00 AM.
               </p>
             </div>
 
@@ -1025,7 +1370,7 @@
                 </div>
                 <div>
                   <span class="detail-label">Time</span>
-                  <span class="detail-value" id="detailTime">7:00 PM onward</span>
+                  <span class="detail-value" id="detailTime">7:00 AM onward</span>
                 </div>
               </div>
 
@@ -1040,7 +1385,7 @@
                 </div>
                 <div>
                   <span class="detail-label">Venue</span>
-                  <span class="detail-value" id="detailVenue">AWAM Banquet Hall, Moh. Peerzadgan, Bachhraon, Uttar Pradesh 244225</span>
+                  <span class="detail-value" id="detailVenue">Humsafar Palace, Moh. Peerzadgan, Bachhraon, Uttar Pradesh 244225</span>
                 </div>
               </div>
             </div>
@@ -1060,11 +1405,11 @@
                   </div>
                   <div class="event-row">
                     <span>Time</span>
-                    <span id="nikahTime">7:00 PM onward</span>
+                    <span id="nikahTime">7:00 AM onward</span>
                   </div>
                   <div class="event-row">
                     <span>Venue</span>
-                    <span id="nikahVenue">AWAM Banquet Hall, Moh. Peerzadgan, Bachhraon, Uttar Pradesh 244225</span>
+                    <span id="nikahVenue">Humsafar Palace, Moh. Peerzadgan, Bachhraon, Uttar Pradesh 244225</span>
                   </div>
                 </div>
 
@@ -1072,7 +1417,7 @@
                   <a
                     class="btn btn-secondary"
                     id="nikahMapLink"
-                    href="https://maps.app.goo.gl/GDvSAw6V8q8TRQuY8?g_st=aw"
+                    href="https://maps.app.goo.gl/456HYHZWxgFymK9v8?g_st=aw"
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -1107,7 +1452,7 @@
                     target="_blank"
                     rel="noreferrer"
                   >
-                    Search Walima Map
+                    
                   </a>
                 </div>
               </article>
@@ -1139,7 +1484,7 @@
               <a
                 class="btn btn-secondary"
                 id="mapLink"
-                href="https://maps.app.goo.gl/GDvSAw6V8q8TRQuY8?g_st=aw"
+                href="https://maps.app.goo.gl/456HYHZWxgFymK9v8?g_st=aw"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -1345,15 +1690,15 @@
       bride: "Rhenuma",
       dateShort: "19 May 2026",
       dateLabel: "Tuesday, 19 May 2026",
-      timeLabel: "7:00 PM",
-      venueShort: "AWAM Banquet Hall",
-      venueName: "AWAM Banquet Hall, Moh. Peerzadgan, Bachhraon, Uttar Pradesh 244225",
-      venueMapQuery: "AWAM Banquet Hall, Moh. Peerzadgan, Bachhraon, Uttar Pradesh 244225",
-      venueLink: "https://maps.app.goo.gl/GDvSAw6V8q8TRQuY8?g_st=aw",
+      timeLabel: "7:00 AM",
+      venueShort: "Humsafar Palace",
+      venueName: "Humsafar Palace, Moh. Peerzadgan, Bachhraon, Uttar Pradesh 244225",
+      venueMapQuery: "Humsafar Palace, Moh. Peerzadgan, Bachhraon, Uttar Pradesh 244225",
+      venueLink: "https://maps.app.goo.gl/456HYHZWxgFymK9v8?g_st=aw",
       walimaDateLabel: "Wednesday, 20 May 2026",
       walimaVenueName: "Umar Gardan, Kuankhera",
       walimaVenueMapQuery: "Umar Gardan Kuankhera",
-      countdownTarget: "2026-05-19T19:00:00+05:30"
+      countdownTarget: "2026-05-19T07:00:00+05:30"
     };
 
     const targetDate = new Date(eventConfig.countdownTarget);
@@ -1362,15 +1707,31 @@
     const minutesEl = document.getElementById("minutes");
     const secondsEl = document.getElementById("seconds");
     const countdownNote = document.getElementById("countdownNote");
-    const music = document.getElementById("bgMusic");
+    const musicPlayerHost = document.getElementById("bgMusicPlayer");
     const musicToggle = document.getElementById("musicToggle");
     const musicLabel = document.getElementById("musicLabel");
+    const themeToggle = document.getElementById("themeToggle");
+    const themeLabel = document.getElementById("themeLabel");
+    const themeIconPath = document.getElementById("themeIconPath");
     const viewInvitation = document.getElementById("viewInvitation");
     const shareLink = document.getElementById("whatsappShare");
     const mapLink = document.getElementById("mapLink");
     const nikahMapLink = document.getElementById("nikahMapLink");
     const walimaMapLink = document.getElementById("walimaMapLink");
     const venueMap = document.getElementById("venueMap");
+    const hero = document.getElementById("home");
+    const heroCard = document.querySelector(".hero-card");
+    const parallaxSections = Array.from(document.querySelectorAll(".section-shell"));
+    const ambientOrbs = Array.from(document.querySelectorAll(".ambient-orb"));
+    const musicVideoId = "U4ni3V5oJJw";
+    const musicVideoUrl = "https://www.youtube.com/watch?v=" + musicVideoId;
+    const themeStorageKey = "wedding-invite-theme";
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const themeIcons = {
+      dark: "M14.5 3.5a1 1 0 0 1 .26 1.97A7 7 0 1 0 18.53 15a1 1 0 0 1 1.34 1.21A9 9 0 1 1 13.29 4.37 1 1 0 0 1 14.5 3.5Z",
+      light:
+        "M12 3.75a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0V4.5a.75.75 0 0 1 .75-.75Zm0 12a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Zm0 4.5a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5a.75.75 0 0 1 .75-.75Zm8.25-8.25a.75.75 0 0 1 .75.75.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 1 0-1.5h1.5ZM5.25 12a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1 0-1.5h1.5Zm10.584 5.334a.75.75 0 0 1 1.06 1.06l-1.06 1.061a.75.75 0 0 1-1.06-1.06l1.06-1.06ZM8.226 8.227a.75.75 0 0 1 1.06-1.06l1.061 1.06a.75.75 0 0 1-1.06 1.061L8.226 8.227Zm8.668-1.06a.75.75 0 0 1 0 1.06l-1.06 1.061a.75.75 0 0 1-1.061-1.06l1.06-1.061a.75.75 0 0 1 1.061 0ZM9.287 15.773a.75.75 0 0 1 0 1.06l-1.06 1.061a.75.75 0 1 1-1.061-1.06l1.06-1.061a.75.75 0 0 1 1.061 0Z"
+    };
 
     document.querySelectorAll('[data-bind="groom"]').forEach((element) => {
       element.textContent = eventConfig.groom;
@@ -1399,6 +1760,45 @@
     nikahMapLink.href = eventConfig.venueLink;
     walimaMapLink.href =
       "https://www.google.com/maps?q=" + encodeURIComponent(eventConfig.walimaVenueMapQuery);
+
+    function readStoredTheme() {
+      try {
+        const storedTheme = window.localStorage.getItem(themeStorageKey);
+
+        if (storedTheme === "dark" || storedTheme === "light") {
+          return storedTheme;
+        }
+      } catch (error) {
+        return "dark";
+      }
+
+      return "dark";
+    }
+
+    let currentTheme = readStoredTheme();
+
+    function applyTheme(theme) {
+      const nextTheme = theme === "dark" ? "light" : "dark";
+
+      document.body.classList.toggle("theme-light", theme === "light");
+      themeToggle.setAttribute("aria-pressed", String(theme === "light"));
+      themeToggle.setAttribute("aria-label", "Switch to " + nextTheme + " mode");
+      themeLabel.textContent = nextTheme === "light" ? "Light Mode" : "Dark Mode";
+      themeIconPath.setAttribute("d", themeIcons[nextTheme]);
+    }
+
+    function setTheme(theme) {
+      currentTheme = theme;
+      applyTheme(theme);
+
+      try {
+        window.localStorage.setItem(themeStorageKey, theme);
+      } catch (error) {
+        return;
+      }
+    }
+
+    setTheme(currentTheme);
 
     function pad(value) {
       return String(value).padStart(2, "0");
@@ -1469,117 +1869,293 @@
 
     shareLink.href = "https://wa.me/?text=" + encodeURIComponent(shareMessage);
 
-    function writeString(view, offset, text) {
-      for (let index = 0; index < text.length; index += 1) {
-        view.setUint8(offset + index, text.charCodeAt(index));
+    function clamp(value, min, max) {
+      return Math.min(max, Math.max(min, value));
+    }
+
+    let parallaxTargetX = 0;
+    let parallaxTargetY = 0;
+    let parallaxCurrentX = 0;
+    let parallaxCurrentY = 0;
+    let parallaxFrame = 0;
+
+    function resetParallax() {
+      if (heroCard) {
+        heroCard.style.setProperty("--parallax-x", "0px");
+        heroCard.style.setProperty("--parallax-y", "0px");
+        heroCard.style.setProperty("--tilt-x", "0deg");
+        heroCard.style.setProperty("--tilt-y", "0deg");
+        heroCard.style.setProperty("--scroll-shift", "0px");
+      }
+
+      parallaxSections.forEach((section) => {
+        section.style.setProperty("--scroll-shift", "0px");
+        section.style.setProperty("--scroll-tilt", "0deg");
+      });
+
+      ambientOrbs.forEach((orb) => {
+        orb.style.transform = "";
+      });
+    }
+
+    function runParallax() {
+      parallaxFrame = 0;
+
+      if (motionQuery.matches) {
+        resetParallax();
+        return;
+      }
+
+      if (window.innerWidth <= 768) {
+        parallaxTargetX = 0;
+        parallaxTargetY = 0;
+      }
+
+      parallaxCurrentX += (parallaxTargetX - parallaxCurrentX) * 0.1;
+      parallaxCurrentY += (parallaxTargetY - parallaxCurrentY) * 0.1;
+
+      if (heroCard) {
+        heroCard.style.setProperty("--parallax-x", (parallaxCurrentX * 14).toFixed(2) + "px");
+        heroCard.style.setProperty("--parallax-y", (parallaxCurrentY * -10).toFixed(2) + "px");
+        heroCard.style.setProperty("--tilt-x", (parallaxCurrentY * 5).toFixed(2) + "deg");
+        heroCard.style.setProperty("--tilt-y", (parallaxCurrentX * 7).toFixed(2) + "deg");
+        heroCard.style.setProperty("--scroll-shift", clamp(window.scrollY * -0.04, -26, 0).toFixed(2) + "px");
+      }
+
+      const viewportCenter = window.innerHeight / 2;
+
+      parallaxSections.forEach((section, index) => {
+        const rect = section.getBoundingClientRect();
+        const distance = viewportCenter - (rect.top + rect.height / 2);
+        const depth = 0.018 + index * 0.003;
+        const shift = clamp(distance * depth, -18, 18);
+        const tilt = clamp(distance * -0.0022, -1.4, 1.4);
+
+        section.style.setProperty("--scroll-shift", shift.toFixed(2) + "px");
+        section.style.setProperty("--scroll-tilt", tilt.toFixed(2) + "deg");
+      });
+
+      ambientOrbs.forEach((orb, index) => {
+        const driftX = parallaxCurrentX * (10 + index * 4);
+        const driftY =
+          parallaxCurrentY * (-8 - index * 3) +
+          Math.sin(window.scrollY / 260 + index) * 10;
+
+        orb.style.transform =
+          "translate3d(" +
+          driftX.toFixed(2) +
+          "px, " +
+          driftY.toFixed(2) +
+          "px, 0) scale(" +
+          (1 + index * 0.04).toFixed(2) +
+          ")";
+      });
+
+      if (
+        Math.abs(parallaxTargetX - parallaxCurrentX) > 0.002 ||
+        Math.abs(parallaxTargetY - parallaxCurrentY) > 0.002
+      ) {
+        queueParallax();
       }
     }
 
-    function createAmbientWavUrl() {
-      const sampleRate = 24000;
-      const duration = 16;
-      const totalSamples = sampleRate * duration;
-      const melody = [196, 220, 247, 294, 330, 294, 247, 220];
-      const support = [147, 165, 185, 196, 220, 196, 185, 165];
-      const segment = duration / melody.length;
-      const samples = new Float32Array(totalSamples);
-
-      for (let i = 0; i < totalSamples; i += 1) {
-        const t = i / sampleRate;
-        const noteIndex = Math.min(melody.length - 1, Math.floor(t / segment));
-        const freq = melody[noteIndex];
-        const bassFreq = support[noteIndex];
-        const localT = t - noteIndex * segment;
-        const attack = Math.min(1, localT / 0.7);
-        const release = Math.min(1, Math.max(0, segment - localT) / 1.1);
-        const envelope = Math.pow(attack * release, 0.9);
-        const bellEnvelope = Math.exp(-3.2 * localT);
-        const vibrato = 1 + 0.0028 * Math.sin(2 * Math.PI * 4.2 * t);
-        const slowSway = Math.sin(2 * Math.PI * 0.11 * t);
-        const masterFade =
-          Math.min(1, t / 1.4) *
-          Math.min(1, Math.max(0.18, duration - t) / 1.5);
-
-        const drone =
-          Math.sin(2 * Math.PI * bassFreq * 0.5 * t) * 0.08 +
-          Math.sin(2 * Math.PI * bassFreq * 0.25 * t + 0.4) * 0.04;
-        const pad =
-          Math.sin(2 * Math.PI * freq * vibrato * t) * 0.11 +
-          Math.sin(2 * Math.PI * freq * 0.5 * t + slowSway * 0.35) * 0.08;
-        const harmony =
-          Math.sin(2 * Math.PI * freq * 1.25 * t + 0.25) * 0.04 +
-          Math.sin(2 * Math.PI * freq * 1.5 * t + slowSway * 0.2) * 0.025;
-        const bell =
-          Math.sin(2 * Math.PI * freq * 2 * t) * 0.022 * bellEnvelope +
-          Math.sin(2 * Math.PI * freq * 3 * t) * 0.012 * bellEnvelope;
-
-        samples[i] = (drone + (pad + harmony) * envelope + bell) * 0.62 * masterFade;
+    function queueParallax() {
+      if (parallaxFrame) {
+        return;
       }
 
-      const buffer = new ArrayBuffer(44 + samples.length * 2);
-      const view = new DataView(buffer);
-      const bytesPerSample = 2;
-      const dataSize = samples.length * bytesPerSample;
-
-      writeString(view, 0, "RIFF");
-      view.setUint32(4, 36 + dataSize, true);
-      writeString(view, 8, "WAVE");
-      writeString(view, 12, "fmt ");
-      view.setUint32(16, 16, true);
-      view.setUint16(20, 1, true);
-      view.setUint16(22, 1, true);
-      view.setUint32(24, sampleRate, true);
-      view.setUint32(28, sampleRate * bytesPerSample, true);
-      view.setUint16(32, bytesPerSample, true);
-      view.setUint16(34, 16, true);
-      writeString(view, 36, "data");
-      view.setUint32(40, dataSize, true);
-
-      let offset = 44;
-      for (let i = 0; i < samples.length; i += 1) {
-        const sample = Math.max(-1, Math.min(1, samples[i]));
-        view.setInt16(offset, sample < 0 ? sample * 0x8000 : sample * 0x7fff, true);
-        offset += 2;
-      }
-
-      const blob = new Blob([buffer], { type: "audio/wav" });
-      return URL.createObjectURL(blob);
+      parallaxFrame = window.requestAnimationFrame(runParallax);
     }
 
-    let musicReady = false;
+    let youtubeApiPromise;
+    let musicPlayerPromise;
+    let musicPlayer;
+    let musicEnabled = false;
+    let musicUnavailable = false;
 
     function updateMusicUi() {
-      const isOn = !music.muted && !music.paused;
-      musicToggle.classList.toggle("is-on", isOn);
-      musicLabel.textContent = isOn ? "Music On" : "Music Off";
+      musicToggle.classList.toggle("is-on", musicEnabled);
+      musicToggle.setAttribute("aria-pressed", String(musicEnabled));
+      musicToggle.setAttribute(
+        "aria-label",
+        musicUnavailable ? "Open wedding song on YouTube" : "Toggle background music"
+      );
+      musicLabel.textContent = musicUnavailable
+        ? "Open Song"
+        : musicEnabled
+          ? "Music On"
+          : "Music Off";
+    }
+
+    function markMusicUnavailable() {
+      musicUnavailable = true;
+      musicEnabled = false;
+      updateMusicUi();
+    }
+
+    function openMusicFallback() {
+      window.open(musicVideoUrl, "_blank", "noopener,noreferrer");
+    }
+
+    function isMusicPlaying() {
+      return Boolean(
+        musicPlayer &&
+          typeof musicPlayer.getPlayerState === "function" &&
+          musicPlayer.getPlayerState() === 1
+      );
+    }
+
+    function loadYouTubeApi() {
+      if (window.YT && typeof window.YT.Player === "function") {
+        return Promise.resolve(window.YT);
+      }
+
+      if (youtubeApiPromise) {
+        return youtubeApiPromise;
+      }
+
+      youtubeApiPromise = new Promise((resolve, reject) => {
+        const previousReady = window.onYouTubeIframeAPIReady;
+        const existingScript = document.querySelector('script[src="https://www.youtube.com/iframe_api"]');
+
+        window.onYouTubeIframeAPIReady = () => {
+          if (typeof previousReady === "function") {
+            previousReady();
+          }
+
+          resolve(window.YT);
+        };
+
+        if (existingScript) {
+          return;
+        }
+
+        const script = document.createElement("script");
+        script.src = "https://www.youtube.com/iframe_api";
+        script.async = true;
+        script.onerror = () => reject(new Error("Unable to load the YouTube API."));
+        document.head.append(script);
+      });
+
+      return youtubeApiPromise;
+    }
+
+    function ensureMusicPlayer() {
+      if (musicPlayerPromise) {
+        return musicPlayerPromise;
+      }
+
+      musicPlayerPromise = loadYouTubeApi()
+        .then(
+          () =>
+            new Promise((resolve, reject) => {
+              musicPlayer = new YT.Player(musicPlayerHost, {
+                videoId: musicVideoId,
+                playerVars: {
+                  autoplay: 0,
+                  controls: 0,
+                  disablekb: 1,
+                  fs: 0,
+                  iv_load_policy: 3,
+                  loop: 1,
+                  modestbranding: 1,
+                  playsinline: 1,
+                  rel: 0,
+                  playlist: musicVideoId
+                },
+                events: {
+                  onReady: (event) => {
+                    event.target.setVolume(35);
+                    event.target.mute();
+                    resolve(event.target);
+                  },
+                  onError: () => {
+                    reject(new Error("YouTube blocked this video from embedded playback."));
+                  }
+                }
+              });
+            })
+        )
+        .catch((error) => {
+          markMusicUnavailable();
+          musicPlayerPromise = null;
+          throw error;
+        });
+
+      return musicPlayerPromise;
     }
 
     async function primeMusic() {
-      if (!musicReady) {
-        music.src = createAmbientWavUrl();
-        music.volume = 0.34;
-        musicReady = true;
-      }
-
       try {
-        await music.play();
+        const player = await ensureMusicPlayer();
+
+        if (!isMusicPlaying()) {
+          player.mute();
+          player.playVideo();
+        }
       } catch (error) {
-        return;
+        markMusicUnavailable();
       }
     }
 
     async function toggleMusic() {
-      await primeMusic();
-
-      if (music.paused) {
-        await music.play().catch(() => {});
+      if (musicUnavailable) {
+        openMusicFallback();
+        return;
       }
 
-      music.muted = !music.muted;
-      updateMusicUi();
+      try {
+        const player = await ensureMusicPlayer();
+
+        if (!isMusicPlaying()) {
+          player.playVideo();
+        }
+
+        musicEnabled = !musicEnabled;
+
+        if (musicEnabled) {
+          player.unMute();
+        } else {
+          player.mute();
+        }
+
+        updateMusicUi();
+      } catch (error) {
+        markMusicUnavailable();
+        openMusicFallback();
+      }
     }
 
+    themeToggle.addEventListener("click", () => {
+      setTheme(currentTheme === "dark" ? "light" : "dark");
+    });
+
     musicToggle.addEventListener("click", toggleMusic);
+
+    if (hero) {
+      hero.addEventListener("pointermove", (event) => {
+        const rect = hero.getBoundingClientRect();
+        const relativeX = (event.clientX - rect.left) / rect.width;
+        const relativeY = (event.clientY - rect.top) / rect.height;
+
+        parallaxTargetX = (relativeX - 0.5) * 2;
+        parallaxTargetY = (relativeY - 0.5) * 2;
+        queueParallax();
+      });
+
+      hero.addEventListener("pointerleave", () => {
+        parallaxTargetX = 0;
+        parallaxTargetY = 0;
+        queueParallax();
+      });
+    }
+
+    window.addEventListener("scroll", queueParallax, { passive: true });
+    window.addEventListener("resize", queueParallax);
+
+    if (typeof motionQuery.addEventListener === "function") {
+      motionQuery.addEventListener("change", queueParallax);
+    }
 
     document.addEventListener(
       "pointerdown",
@@ -1594,6 +2170,7 @@
     });
 
     updateMusicUi();
+    queueParallax();
   </script>
 </body>
 </html>
